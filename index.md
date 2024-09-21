@@ -31,8 +31,8 @@ VirtualBoxを利用する予定の方は、「基本がわかるSQL入門」の�
 Windows版のDBMSをインストールする（MySQL/MariaDB/PostgreSQL/Microsoft SQL Server）  
 それぞれのコマンドラインクライアントでSQLを実行する方法（参考、コマンド操作に慣れている人向け）および、GUI環境として、DBeaverの導入方法を解説しています。
 
-- [Web環境の利用]() ※準備中
-[SQL Fiddle](https://sqlfiddle.com)というオンラインサービスで、サンプルデータを使ってSQLを試す方法を紹介しています。
+- [Web環境の利用](howto/fiddle) 
+[SQL Fiddle](https://sqlfiddle.com)というオンラインサービスでサンプルデータを使う方法を紹介しています。
 
 <a id="sampledata" name="sampledata"></a>
 ## サンプルデータ
