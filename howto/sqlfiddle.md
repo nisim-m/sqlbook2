@@ -44,7 +44,7 @@ SQL&nbsp;Fiddleの入力エリアにSQL文を入力して「Execute」をクリ�
 
 ### テスト用のSELECT文
 
-実行結果をすぐに試してみたい方は以下のSELECT文でお試し下さい。
+すぐに試してみたい方は以下のSELECT文でお試し下さい。
 <!-- 技術評論社の電子書籍（PDF版）の場合、書面からのコピー＆ペーストで実行できます。-->
 
 <div class="codetitle">testdb用</div>
