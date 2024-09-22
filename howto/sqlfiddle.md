@@ -33,7 +33,7 @@ SQL&nbsp;Fiddleが用意しているサンプルデータを作成するため�
 <div class="imgtitle">❸SQL&nbsp;Fiddleの入力エリアに貼り付けて「Execute」をクリック</div>
 <a href="images/img1726951592.png"><img src="images/img1726951592.png" width="300"/></a>
 
-※サンプルデータ作成用のSQL（testdb.sql、sampledb.sql、samplesb2.sql）はテーブルの作成とデータの登録のみなので実行結果は特に表示されません。
+<small>※サンプルデータ作成用のSQL（testdb.sql、sampledb.sql、samplesb2.sql）はテーブルの作成とデータの登録のみなので実行結果は特に表示されません。</small>
 
 ## SQL文の実行
 

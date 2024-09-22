@@ -72,7 +72,7 @@ SQL&nbsp;Server用は❶sqlcmd.exeでの表示結果を見やすくするため�
 | [sampledb2-sqlserver.sql](sample/sampledb2-sqlserver.sql) | 第7章用サンプルデータ（フクロウ塾） | sampledb2 |
 
 #### サンプルデータをインポートするには
-- [mysqlコマンドの場合（MySQL, MariaDB ※コマンド操作に慣れている人向け）](howto/) ※準備中
+- [mysql/mariadbコマンドの場合（MySQL, MariaDB ※コマンド操作に慣れている人向け）](howto/import-mariadb)
 - [psqlコマンドの場合（PostgreSQL ※コマンド操作に慣れている人向け）](howto/) ※準備中
 - [Microsoft SQL&nbsp;Server場合](howto/) ※準備中
 - [DBeaverの場合（MySQL, MariaDB, PostgreSQL, SQL&nbsp;Server）](howto/) ※準備中
@@ -82,11 +82,13 @@ SQL&nbsp;Server用は❶sqlcmd.exeでの表示結果を見やすくするため�
 
 | ページ | 内容 |
 | ---- | ---- |
+|  |  |
 
 ### 補足情報
 
 | ページ | 内容 |
 | ---- | ---- |
+|  |  |
 
 ## 履歴
 <a id="markdown-%E7%B7%A8%E9%9B%86%E5%B1%A5%E6%AD%B4" name="%E7%B7%A8%E9%9B%86%E5%B1%A5%E6%AD%B4"></a>
