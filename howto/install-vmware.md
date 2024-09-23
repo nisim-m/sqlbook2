@@ -7,7 +7,7 @@
    2. [VMwareのダウンロード](#vmwareのダウンロード)
    3. [UbunutuのISOイメージ](#ubunutuのisoイメージ)
 2. [VMwareのインストール](#vmwareのインストール)
-   1. [(参考) Windows機能互換性の設定の変更](#参考-windows機能互換性の設定の変更)
+   1. [【参考】Windows機能互換性の設定の変更](#参考windows機能互換性の設定の変更)
    2. [ライセンスキーの入力について](#ライセンスキーの入力について)
 3. [仮想マシンの作成](#仮想マシンの作成)
 4. [ゲストOS（Ubuntu）のインストール](#ゲストosubuntuのインストール)
@@ -122,7 +122,7 @@ Broadcomでメールアドレスを登録してアカウントを作成します
 
 インストーラを実行し、画面に従ってインストールを行います。
 
-(参考)VMwareのインストール画面：
+【参考】VMwareのインストール画面：
 ※Windows環境の状態やVMwareのバージョンによって異なる画面が表示される可能性があります。
 
 <div class="imgtitle">Windowsにインストールされているソフトウェアによって下記のメッセージが表示されることがある（「はい」を選択するとすぐに再起動される：任意）</div>
@@ -132,7 +132,7 @@ Broadcomでメールアドレスを登録してアカウントを作成します
 
 途中の設定はいずれも任意です。
 
-### (参考) Windows機能互換性の設定の変更
+### 【参考】Windows機能互換性の設定の変更
 
 Windows機能互換性の設定の変更は他の仮想環境（WSL2やVirtualBox）に影響を与えることがあります。筆者の環境（Windows 11）ではW「indowsの機能の有効化または無効化」で「Hyper-V」「Windowsハイパーバイザープラットフォーム」「Linux用Windowsサブシステム」を有効にしてVMware, VirtualBox, WSL2が使用可能な状態になっていますが、これらの設定で動作しない、あるいはパフォーマンスが落ちる場合は、ご自身の環境にあわせて導入する仮想環境を選択してください。
 
@@ -687,7 +687,8 @@ sudo -u postgres psql -c "ALTER USER study WITH PASSWORD 'mypassword'"
 
 👉[サンプルデータについて](https://nisim-m.github.io/sqlbook2/#%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%87%E3%83%BC%E3%82%BF)
 
-<strong>※MariaDB用にダウンロード済みの場合は不要</strong>
+<div class="codetitle">サンプルデータのダウンロード（MariaDB用にダウンロード済みの場合は不要）</div>
+
 ```
 wget https://nisim-m.github.io/sqlbook2/sample/testdb.sql
 wget https://nisim-m.github.io/sqlbook2/sample/sampledb.sql
