@@ -581,7 +581,7 @@ DBeaverはダッシュボードに登録して起動できます。
 <div class="imgtitle">ER図（sampledbには多数のテーブルが登録されているため、ここではsampledb2を表示しています）</div>
 <a href="images/img1726944086.png"><img src="images/img1726944086.png" width="300"/></a>
 
-#### <a name="DBeaver-import">サンプルデータの取り込み</a>
+#### <a name="dbeaver-import" id="dbeaver-import">サンプルデータの取り込み</a>
 
 DBeaverでは、テーブルを右クリック→「データのインポート」でCSVデータのインポートができるようになっていますが、本書のサンプルコードはSQLコマンドで書かれているためこのメニューから取り込むことはできません。
 
@@ -591,8 +591,6 @@ DBeaverでは、テーブルを右クリック→「データのインポート�
 <a href="images/img1727069389.png"><img src="images/img1727069389.png" width="300"/></a>
 <div class="imgtitle">「SQLスクリプトを実行する（Alt+X）」で実行してデータを取り込む</div>
 <a href="images/img1727114518.png"><img src="images/img1727114518.png" width="350"/></a>
-
-
 
 <!--
 ## PostgreSQLのインストールと設定

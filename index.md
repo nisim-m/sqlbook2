@@ -75,7 +75,7 @@ SQL&nbsp;Server用は❶sqlcmd.exeでの表示結果を見やすくするため�
 - [mysql/mariadbコマンドの場合（MySQL, MariaDB ※コマンド操作に慣れている人向け）](howto/import-mariadb)
 - [psqlコマンドの場合（PostgreSQL ※コマンド操作に慣れている人向け）](howto/) ※準備中
 - [Microsoft SQL&nbsp;Server場合](howto/) ※準備中
-- [DBeaverの場合（MySQL, MariaDB, PostgreSQL, SQL&nbsp;Server）](howto/) ※準備中
+- [DBeaverの場合（MySQL, MariaDB, PostgreSQL, SQL&nbsp;Server）](howto/install-vmware#dbeaver-import) ※準備中
 
 ## 正誤表
 <a id="markdown-%E6%AD%A3%E8%AA%A4%E8%A1%A8" name="%E6%AD%A3%E8%AA%A4%E8%A1%A8"></a>
