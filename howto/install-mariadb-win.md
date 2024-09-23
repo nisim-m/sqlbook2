@@ -15,6 +15,9 @@ Windows環境にはMySQL、MariaDB、PostgreSQL、SQL Serverをインストー�
    3. [補足：SQLが実行されない場合](#補足sqlが実行されない場合)
    4. [コマンドラインツールの終了](#コマンドラインツールの終了)
    5. [2回目以降](#2回目以降)
+5. [テスト用ユーザーの作成](#テスト用ユーザーの作成)
+   1. [【参考】スタートメニューに追加するには](#参考スタートメニューに追加するには)
+6. [HeidiSQL](#heidisql)
 <!-- TOC -->
 
 ## MariaDBのダウンロード
@@ -133,8 +136,83 @@ exitまたはquitで終了します。大文字・小文字の区別はありま
 
 ### 2回目以降
 
-スタートメニューからコマンドラインツールを実行してパスワードを入力、`USE データベース名`でデータベースを使用できます。
+スタートメニューからコマンドラインツールを実行してパスワードを入力、`use データベース名`でデータベースを使用できます。
 
 <a href="images/img1715011336.png"><img src="images/img1715011336.png" width="300"/></a>
 
----
+## テスト用ユーザーの作成
+
+スタートメニューから実行するコマンドラインクライアントは、MariaDBの管理者である`root`ユーザーでMariaDBサーバーに接続しSQLを実行するようになっています。個人のローカルPCでテストする分にこれで問題ありませんが、テスト用のユーザーを使用したい場合は以下のコマンドで作成します。
+
+`study`部分はデータベースに接続するユーザー、`mypqssword`部分は接続に使用するパスワードです。
+適宜、ご自身のユーザー名と使用したいパスワードに置き換えて実行してください。
+なお、パスワードは`ALTER USER ユーザー名 IDENTIFIED BY '新しいパスワード'`で変更できます。
+
+```
+-- データベース接続用のユーザーを作成
+-- CREATE USER 'ユーザー名'@'localhost' IDENTIFIED BY 'データベース接続用のパスワード';
+CREATE USER 'study'@'localhost' IDENTIFIED BY 'mypassword';
+```
+
+作成したデータベースに対し、データの追加や削除などを含めたすべての権限を与えます。
+`WITH GRANT OPTION`は権限の追加や削除も行えるようにするためのオプションです。
+
+```
+GRANT ALL ON testdb.* TO 'study'@'localhost' WITH GRANT OPTION;
+GRANT ALL ON sampledb.* TO 'study'@'localhost' WITH GRANT OPTION;
+GRANT ALL ON sampledb2.* TO 'study'@'localhost' WITH GRANT OPTION;
+```
+
+設定した権限を再読込してmysqlコマンドを終了します。
+
+```
+FLUSH PRIVILEGES;
+quit
+```
+
+mysqlコマンドが終了してWindowsのコマンドラインに戻るので、あらためてmysqlコマンドを実行します。
+ユーザー「study」でパスワードを使って接続するには以下の様にします。
+
+```
+mysql -ustudy -p
+```
+
+### 【参考】スタートメニューに追加するには
+
+スタートメニューにユーザー「study」用の起動メニューを作成したい場合は以下の様にします。
+
+1. スタートメニューの「MySQL Client」を右クリック→その他→ファイルの場所を開くをクリック
+1. 「MySQL Client」をコピーして、アイコンを右クリック→プロパティで「リンク先」の`-uroot`を`-ustudy`（-uに続けてユーザー名を入力、スペースは入れない）に変更して保存する
+   
+
+<div class="imgtitle">「ファイルの場所を開く」でフォルダを開いてショートカットのコピーを作成</div>
+<a href="images/202492433620.png"><img src="images/202492433620.png" width="300"/></a>
+
+<div class="imgtitle">コピーした「MySQL Client」ショートカットのプロパティで`-uroot`を`-uユーザー名`とする（この画像では`-ustudy`に変更） </div>
+<a href="images/202492433749.png"><img src="images/202492433749.png" width="200"/></a>
+
+
+## HeidiSQL
+
+Windows版のMariaDBをインストールすると、デフォルトでHeidiSQLというGUIツールも同時にインストールされます。
+
+ここでは、サンプルデータ登録後のデータ表示とSQL文の実行画面のみ紹介します。
+
+<div class="imgtitle">「新規」で新しい接続を作成</div>
+<a href="images/202492423931.png"><img src="images/202492423931.png" width="300"/></a>
+
+
+<div class="imgtitle">名前を変更</div>
+<a href="images/202492423939.png"><img src="images/202492423939.png" width="300"/></a>
+
+<div class="imgtitle">ユーザー名とパスワード、ポート番号を入力</div>
+<a href="images/202492424129.png"><img src="images/202492424129.png" width="300"/></a>
+
+
+<div class="imgtitle"></div><a href="images/im202492424154g.png"><img src="images/202492424154.png" width="300"/></a>
+
+<div class="imgtitle"></div><a href="images/202492424434.png"><img src="images/202492424434.png" width="300"/></a>
+
+
+----
+[標準SQL＋データベース入門 <small>——RDBとDB設計、基本の力</small> サポートページ](https://nisim-m.github.io/sqlbook2/)
