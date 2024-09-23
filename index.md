@@ -21,7 +21,7 @@
 
 本書に掲載しているSQL文を実行するためのテスト環境を導入する方法です。以下の3種類を紹介しています。ご自身が利用している環境とお好みに応じて選択してください。
 - [VMware + Ubuntu](howto/install-vmware)
-仮想環境にUbuntuをインストールし、DBMSをインストールする （MySQL/MariaDB/PostgreSQL）  <br/> <br/> 
+仮想環境にUbuntuをインストールし、DBMSをインストールする （MariaDB/PostgreSQL）  <br/> <br/> 
 テスト環境や勉強用の環境を作りたいときには、VMwareやVirtualBoxのような「仮想化環境」が便利です。  
 仮想化環境を利用することで、普段使っているOSはそのままで、別途OSを動かし、そこでデータベースを動かすことができます。環境の作り直しも簡単で、テスト環境が不要になったら仮想環境ごと削除することもできます。Unix系OSでの導入を考えている場合、本番環境に近い環境で試すことができるというメリットがあります。 <br/> 
 導入するUbuntuはデスクトップ版で、GUIからDBMSに接続する方法の1つとしてDBeaverを紹介しています。なお、本書のサンプル実行にあたっては、GUIを使用せず、コマンドラインのみの利用でも問題ありません。  <br/> 
@@ -75,7 +75,7 @@ SQL&nbsp;Server用は❶sqlcmd.exeでの表示結果を見やすくするため�
 - [mysql/mariadbコマンドの場合（MySQL, MariaDB ※コマンド操作に慣れている人向け）](howto/import-mariadb)
 - [psqlコマンドの場合（PostgreSQL ※コマンド操作に慣れている人向け）](howto/) ※準備中
 - [Microsoft SQL&nbsp;Server場合](howto/) ※準備中
-- [DBeaverの場合（MySQL, MariaDB, PostgreSQL, SQL&nbsp;Server）](howto/install-vmware#dbeaver-import) ※準備中
+- [DBeaverの場合（MySQL, MariaDB, PostgreSQL, SQL&nbsp;Server）](howto/install-vmware#dbeaver-import) ※VMware+Ubuntuページ内
 
 ## 正誤表
 <a id="markdown-%E6%AD%A3%E8%AA%A4%E8%A1%A8" name="%E6%AD%A3%E8%AA%A4%E8%A1%A8"></a>

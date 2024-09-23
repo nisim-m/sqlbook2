@@ -32,6 +32,15 @@
    1. [DBeaverの起動](#dbeaverの起動)
    2. [DBeaverの設定](#dbeaverの設定)
    3. [DBeaverの画面](#dbeaverの画面)
+9. [\[参考\]PostgreSQLのインストールと設定](#参考postgresqlのインストールと設定)
+   1. [インストール](#インストール-1)
+   2. [起動の確認](#起動の確認-1)
+   3. [自動起動の設定](#自動起動の設定-1)
+   4. [DB管理者用パスワードの設定](#db管理者用パスワードの設定)
+   5. [テスト用ユーザーおよびサンプル用データベースの作成](#テスト用ユーザーおよびサンプル用データベースの作成)
+   6. [サンプルデータのDLと取り込み](#サンプルデータのdlと取り込み-1)
+   7. [サンプルデータの確認](#サンプルデータの確認)
+   8. [DBeaverから接続するには](#dbeaverから接続するには)
 <!-- /TOC -->
 
 Ubuntuインストール後は「端末」を使い、コマンドを入力することでテスト環境に必要なソフトウェアのインストールをします。 コマンドは、以下の書式で示しています。
@@ -372,6 +381,10 @@ sudo apt -y install mariadb-server
 ```
 systemctl status mariadb
 ```
+
+<div class="imgtitle">（参考）実行例</div>
+<a href="images/img1727131684.png"><img src="images/img1727131684.png" width="300"/></a>
+
 <small>※`active`と表示されていない場合は、`sudo systemctl restart mariadb`を実行してエラーメッセージの有無を確認、エラーメッセージが出ていたら公式サイト等で確認。</small>
 
 ### 自動起動の設定
@@ -542,7 +555,7 @@ DBeaverはダッシュボードに登録して起動できます。
 
 「新しい接続を作成する」というダイアログが表示されるので、画面に従って設定を行います。
 
-<small>※接続するDBMSを追加する場合はCtrl+N（データベース→新しい接続）で再度この画面を開くことができます。</small>
+<small>※接続するDBMSを追加する場合はShift+Ctrl+N（データベース→新しい接続）で再度この画面を開くことができます。</small>
 
 <div class="imgtitle">「新しい接続を作成する」でMariaDBを選択して「次へ」をクリック</div>
 <a href="images/img1726943494.png"><img src="images/img1726943494.png" width="300"/></a>
@@ -592,13 +605,167 @@ DBeaverでは、テーブルを右クリック→「データのインポート�
 <div class="imgtitle">「SQLスクリプトを実行する（Alt+X）」で実行してデータを取り込む</div>
 <a href="images/img1727114518.png"><img src="images/img1727114518.png" width="350"/></a>
 
-<!--
-## PostgreSQLのインストールと設定
+## [参考]PostgreSQLのインストールと設定
 
-本書のサンプルは原則としてMariaDBでの実行結果を掲載していますが、PostgreSQLでも同じように実行可能です。ご興味のある方は以下を参考にしてください。👉リンク
+本書のサンプルは原則としてMariaDBでの実行結果を掲載していますが、PostgreSQLでも同じように実行可能です。ご興味のある方は以下を参考にしてください。MariaDBと同じ環境にインストールできます。
 
--->
+### インストール
 
+```
+sudo apt -y install postgresql
+```
+
+### 起動の確認
+
+インストールするとPostgreSQL（サーバー）が自動で起動します。
+起動できているかどうかは下記のコマンドで確認できます（［q］キーで終了）。
+
+```
+systemctl status postgresql
+```
+
+<div class="imgtitle">（参考）実行例</div>
+<a href="images/img1727131753.png"><img src="images/img1727131753.png" width="300"/></a>
+
+<small>※`active`と表示されていない場合は、`sudo systemctl restart postgresql`を実行してエラーメッセージの有無を確認、エラーメッセージが出ていたら公式サイト等で確認。</small>
+
+### 自動起動の設定
+
+PostgreSQLはデフォルトで自動起動されるよう設定されています。 通常、変更する必要はありません。変更したい場合や現在の設定を確認したい場合は以下のコマンドを使用してください。
+
+```
+# 無効にする
+sudo systemctl disable postgresql
+# 有効にする場合：
+sudo systemctl enable postgresql
+# 現在の設定を確認する
+systemctl is-enabled postgresql
+```
+
+### DB管理者用パスワードの設定
+
+まず、管理者用（postgres）のパスワードを設定します。ここでは`psql`コマンドを使用しています。
+`psql`コマンドはPostgreSQLサーバーに接続するためのコマンドで、MySQLの`mysql`コマンドに相当します。
+
+`psql`だけで実行すると`postgres=#`というプロンプトが表示されてSQLを実行できる他、`psql -c "SQL文"`でSQL文を実行することができます。
+ここでは、後者の方法でALTER文を実行しています。SQLキーワードは大文字で示していますが、入力は小文字でかまいません（👉2.1節「標準SQLと基本的な書式」）。
+
+なお、PostgreSQLの管理者はpostgresというユーザーなので、ここでは`sudo -u postgres psql -c "SQL文"`のようにsudoコマンドを使用して実行しています。adminpassword部分はご自身が使用したいパスワードで置き換えて実行してください。
+
+<small>※sudoコマンドの`-u`オプションは、どのユーザーの権限で実行するかを指定するオプションで、省略時はrootの権限で実行されます。</small>
+
+```
+sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'adminpassword'"
+```
+<div class="imgtitle">（参考）実行画面</div>
+<a href="images/img1727132312.png"><img src="images/img1727132312.png" width="300"/></a>
+
+### テスト用ユーザーおよびサンプル用データベースの作成
+
+テスト用のユーザー`study`を作成し、サンプル用データベース`testdb``sampledb``sampledb2`を作成します。  
+
+PostgreSQLの場合、ユーザー作成用およびデータベース作成用のコマンドが用意されています。
+ここでは、テスト用のユーザーとして、Ubuntuをインストールする際に作成したユーザー名と同じ名前のユーザー（study）を作成しています。
+
+```
+sudo -u postgres createuser study
+sudo -u postgres createdb -E utf-8 -O study testdb
+sudo -u postgres createdb -E utf-8 -O study sampledb
+sudo -u postgres createdb -E utf-8 -O study sampledb2
+```
+
+先ほどと同じALTER文で、テスト用のユーザー`study`がPostgreSQLに接続する際のパスワードを設定します。mypassword部分はご自身が使用したいパスワードで置き換えて実行してください。
+
+```
+sudo -u postgres psql -c "ALTER USER study WITH PASSWORD 'mypassword'"
+```
+
+### サンプルデータのDLと取り込み
+
+サンプルデータをダウンロードします。
+ファイルはカレントディレクトリに保存されます。
+
+👉[サンプルデータについて](https://nisim-m.github.io/sqlbook2/#%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%87%E3%83%BC%E3%82%BF)
+
+<strong>※MariaDB用にダウンロード済みの場合は不要</strong>
+```
+wget https://nisim-m.github.io/sqlbook2/sample/testdb.sql
+wget https://nisim-m.github.io/sqlbook2/sample/sampledb.sql
+wget https://nisim-m.github.io/sqlbook2/sample/sampledb2.sql
+```
+
+SQLが書かれたファイルは、`psql`コマンドを使い`psql -U ユーザー名 -d データベース名 -f SQLファイル名`で取り込むことができます。以下はダウンロード済みのSQLファイルがあるディレクトリで実行してください。
+
+```
+psql -U study -d testdb -f testdb.sql
+psql -U study -d sampledb -f sampledb.sql
+psql -U study -d sampledb2 -f sampledb2.sql
+```
+
+### サンプルデータの確認
+
+`psql -U ユーザー名 -d データベース名`でデータベースを指定して起動し、`\dt`コマンドを実行すると、データベースに登録されているテーブルが一覧表示されます。
+
+`\dt`はpsql独自のコマンドで、`\`は日本語キーボードの[¥]記号で入力します。画面表示が`¥`となっていても意味は同じです。
+
+この他、`\c データベース名`でデータベースの変更、`\q`でpsqlコマンドを終了できます。
+
+#### テスト用のSELECT文
+
+すぐに試してみたい方は以下のSELECT文でお試し下さい。
+<!-- 技術評論社の電子書籍（PDF版）の場合、書面からのコピー＆ペーストで実行できます。-->
+
+<div class="codetitle">testdb用</div>
+
+~~~SQL
+select * from 生徒マスター where 校舎='新宿';
+~~~
+
+<div class="codetitle">sampledb, sampledb2用</div>
+
+~~~SQL
+select * from students where branch='新宿';
+~~~
+
+<div class="imgtitle">（参考）実行画面</div>
+<a href="images/img1727134196.png"><img src="images/img1727134196.png" width="300"/></a>
+
+実行結果が長い場合、最下行に[:]が表示されます。Enterで1行、スペースで1画面進み、上下矢印キーでスクロールできます。[Esc]キーで表示が終了します。
+<small>※Linux環境で使われているlessコマンドと同じキー操作です。</small>
+
+<div class="imgtitle">（参考）実行結果が長い場合</div>
+<a href="images/img1727134240.png"><img src="images/img1727134240.png" width="300"/></a>
+
+
+### DBeaverから接続するには
+
+❶「新しい接続」（Ctrl+Shift+N）で❷PostgreSQLを選択し、「Show all databases」にチェックマークを入れてユーザー名とパスワードを入力します。
+
+<div class="imgtitle">❶新しい接続で❷PostgreSQLを選択</div>
+<a href="images/img1727135669.png"><img src="images/img1727135669.png" width="300"/></a>
+
+
+<div class="imgtitle">「Show all databases」にチェックを入れてユーザー名とパスワードを入力</div>
+<a href="images/img1727135761.png"><img src="images/img1727135761.png" width="300"/></a>
+
+「postgres」をクリックすると「ドライバの設定」が表示されるので、画面に従ってドライバファイルをダウンロードします。
+
+<a href="images/img1727135804.png"><img src="images/img1727135804.png" width="300"/></a>
+
+ドライバのインストールが終わると元の画面に戻るので、postgresをクリックし、データベースを選択します。
+データベース→スキーマ→public→テーブルでテーブル名をダブルクリックするとテーブルの情報を確認できます。
+
+<a href="images/img1727136763.png"><img src="images/img1727136763.png" width="300"/></a>
+
+データベースを選択して「SQL」でSQLエディタを開きます。SQL文は▶ボタンまたはCtrl+Enterで実行され、実行結果が画面に表示されます。
+
+<a href="images/img1727137373.png"><img src="images/img1727137373.png" width="300"/></a>
+
+#### サンプルデータベースが表示されない場合
+
+データベースが「postgres」（デフォルトデータベース）のみで、[サンプル用データベースの作成](#テスト用ユーザーおよびサンプル用データベースの作成)の手順で作成したtestdbなどのサンプルデータベースが表示されない場合は、接続を編集して「Show all databases」にチェックマークを入れてください。
+
+<div class="imgtitle">右クリック→「接続 編集」で「Show all databases」に✔</div><a href="images/img1727136803.png"><img src="images/img1727136803.png" width="300"/></a>
 
 ----
 [標準SQL＋データベース入門 サポートページ](https://nisim-m.github.io/sqlbook2/)
