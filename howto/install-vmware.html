@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>install-vmware.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p><a href="https://nisim-m.github.io/sqlbook2/">標準SQL＋データベース入門 サポートページ</a></p>
+<h1 id="%E5%AD%A6%E7%BF%92%E7%94%A8%E7%92%B0%E5%A2%83windows--vmware--ubuntu">学習用環境（Windows + VMware + Ubuntu）</h1>
+<!-- TOC -->
+<ol>
+<li><a href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">ファイルのダウンロード</a>
+<ol>
+<li><a href="#broadcom%E3%81%AE%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%9C%E6%88%90">Broadcomのアカウントを作成</a></li>
+<li><a href="#vmware%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">VMwareのダウンロード</a></li>
+<li><a href="#ubunutu%E3%81%AEiso%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8">UbunutuのISOイメージ</a></li>
+</ol>
+</li>
+<li><a href="#vmware%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">VMwareのインストール</a>
+<ol>
+<li><a href="#%E5%8F%82%E8%80%83-windows%E6%A9%9F%E8%83%BD%E4%BA%92%E6%8F%9B%E6%80%A7%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%81%AE%E5%A4%89%E6%9B%B4">(参考) Windows機能互換性の設定の変更</a></li>
+<li><a href="#%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%82%AD%E3%83%BC%E3%81%AE%E5%85%A5%E5%8A%9B%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">ライセンスキーの入力について</a></li>
+</ol>
+</li>
+<li><a href="#%E4%BB%AE%E6%83%B3%E3%83%9E%E3%82%B7%E3%83%B3%E3%81%AE%E4%BD%9C%E6%88%90">仮想マシンの作成</a></li>
+<li><a href="#%E3%82%B2%E3%82%B9%E3%83%88osubuntu%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">ゲストOS（Ubuntu）のインストール</a>
+<ol>
+<li><a href="#cddvd%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%E3%81%AE%E8%A8%AD%E5%AE%9A">CD/DVDイメージの設定</a></li>
+<li><a href="#%E3%82%B2%E3%82%B9%E3%83%88os%E3%81%AE%E8%B5%B7%E5%8B%95%E5%88%9D%E5%9B%9E">ゲストOSの起動（初回）</a></li>
+<li><a href="#%E5%86%8D%E8%B5%B7%E5%8B%95%E5%BE%8C%E3%81%AE%E8%A8%AD%E5%AE%9A">再起動後の設定</a></li>
+<li><a href="#vmware-tools">VMware Tools</a></li>
+</ol>
+</li>
+<li><a href="#%E3%82%B9%E3%83%8A%E3%83%83%E3%83%97%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%E3%81%AE%E6%B4%BB%E7%94%A8">スナップショットの活用</a></li>
+<li><a href="#ubuntu%E3%81%AE%E8%A8%AD%E5%AE%9A">Ubuntuの設定</a>
+<ol>
+<li><a href="#%E3%82%B9%E3%83%AA%E3%83%BC%E3%83%97%E3%81%BE%E3%81%A7%E3%81%AE%E6%99%82%E9%96%93">スリープまでの時間</a></li>
+<li><a href="#%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E5%90%8D%E3%82%92%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A1%E3%83%99%E3%83%83%E3%83%88%E3%81%AB%E3%81%99%E3%82%8B">フォルダ名をアルファベットにする</a></li>
+</ol>
+</li>
+<li><a href="#mariadb%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E8%A8%AD%E5%AE%9A">MariaDBのインストールと設定</a>
+<ol>
+<li><a href="#%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">インストール</a></li>
+<li><a href="#%E8%B5%B7%E5%8B%95%E3%81%AE%E7%A2%BA%E8%AA%8D">起動の確認</a></li>
+<li><a href="#%E8%87%AA%E5%8B%95%E8%B5%B7%E5%8B%95%E3%81%AE%E8%A8%AD%E5%AE%9A">自動起動の設定</a></li>
+<li><a href="#db%E7%AE%A1%E7%90%86%E8%80%85%E7%94%A8%E3%83%91%E3%82%B9%E3%83%AF%E3%83%BC%E3%83%89%E8%A8%AD%E5%AE%9A">DB管理者用パスワード設定</a></li>
+<li><a href="#%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E7%94%A8%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E4%BD%9C%E6%88%90">サンプル用データベースの作成</a></li>
+<li><a href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E6%8E%A5%E7%B6%9A%E7%94%A8%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%AE%E4%BD%9C%E6%88%90">データベース接続用ユーザーの作成</a></li>
+<li><a href="#%E6%A8%A9%E9%99%90%E3%81%AE%E4%BB%98%E4%B8%8E">権限の付与</a></li>
+<li><a href="#%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AEdl%E3%81%A8%E5%8F%96%E3%82%8A%E8%BE%BC%E3%81%BF">サンプルデータのDLと取り込み</a></li>
+</ol>
+</li>
+<li><a href="#dbeaver%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E8%A8%AD%E5%AE%9A">DBeaverのインストールと設定</a>
+<ol>
+<li><a href="#dbeaver%E3%81%AE%E8%B5%B7%E5%8B%95">DBeaverの起動</a></li>
+<li><a href="#dbeaver%E3%81%AE%E8%A8%AD%E5%AE%9A">DBeaverの設定</a></li>
+<li><a href="#dbeaver%E3%81%AE%E7%94%BB%E9%9D%A2">DBeaverの画面</a></li>
+</ol>
+</li>
+</ol>
+<!-- /TOC -->
+<p>Ubuntuインストール後は「端末」を使い、コマンドを入力することでテスト環境に必要なソフトウェアのインストールをします。 コマンドは、以下の書式で示しています。</p>
+<pre class="hljs"><code><div>command
+</div></code></pre>
+<p>そのままコピーして使いやすくするため、プロンプトや実行結果（実行したコマンドが表示するメッセージなど）は入っていません。 実際に実行している様子の画像をつけているので、適宜参考にしてください。</p>
+<p>テスト環境の構築に必要なコマンドラインのみを示しており、各コマンドの使い方などは紹介していません。【宣伝】Linuxコマンドにご関心がある方は姉妹本<a href="https://nisim-m.github.io/linuxcmdbook/">「Linux＋コマンド入門」</a>をご覧下さい。</p>
+<h2 id="%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">ファイルのダウンロード</h2>
+<p>VMwareのインストールファイルとUbuntuのISOイメージを使用します。
+VMwareのダウンロードにはBroadcomのアカウント（無料※2024年9月現在）が必要です。</p>
+<h3 id="broadcom%E3%81%AE%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E4%BD%9C%E6%88%90">Broadcomのアカウントを作成</h3>
+<p>Broadcomでメールアドレスを登録してアカウントを作成します。
+<a href="https://support.broadcom.com/">Broadcom</a></p>
+<p>※参考：2024年9月現在
+❶[Register]でメールアドレスと画像の文字列を入力して[Next]をクリック→❷入力したメールアドレス宛に6桁のverification codeが送信されるので入力して[Verify Continue]をクリック→❸名前等を入力し[Create Account]をクリック</p>
+<div class="imgtitle">❶Register</div>
+<a href="images/img1726453838.png"><img src="images/img1726453838.png" width="300"/></a>
+<div class="imgtitle">❷Verify</div>
+<a href="images/img1726453902.png"><img src="images/img1726453902.png" width="300"/></a>
+<div class="imgtitle">❸Create Account</div>
+<a href="images/img1726453974.png"><img src="images/img1726453974.png" width="300"/></a>
+<h3 id="vmware%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89">VMwareのダウンロード</h3>
+<p>ダウンロード用のリンクは以下のとおりです。❶Broadcomにログインしていない場合はログイン→❷「Personal Use」をクリックし、❸バージョンを選択して❹ダウンロードします。ダウンロードに先立ち追加のverificationが求められた場合は[Yes]で進み、❺住所を入力して[Submit]をクリックするとダウンロード画面に戻るので、❻改めてダウンロードアイコンをクリックします。</p>
+<p><a href="https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware+Workstation+Pro">Windows: VMware Workstation Pro Download</a>
+<a href="https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware+Fusion">macOS: VMware Fusion Pro Download</a></p>
+<p>※参考：リンク元
+<a href="https://blogs.vmware.com/workstation/2024/05/vmware-workstation-pro-now-available-free-for-personal-use.html">VMware Workstation Pro: Now Available Free for Personal Use</a></p>
+<div class="imgtitle">❶ログインしていない場合は先にログイン</div>
+<a href="images/img1726454553.png"><img src="images/img1726454553.png" width="300"/></a>
+<div class="imgtitle">❷-1 Windows版の場合</div>
+<a href="images/img1726456410.png"><img src="images/img1726456410.png" width="300"/></a>
+<div class="imgtitle">❷-2 macOS版の場合</div>
+<a href="images/img1726456498.png"><img src="images/img1726456498.png" width="300"/></a>
+<p>(以下Windows用の画面)</p>
+<div class="imgtitle">❸バージョンをクリック</div>
+<a href="images/img1726456578.png"><img src="images/img1726456578.png" width="300"/></a>
+<div class="imgtitle">❹ダウンロードアイコンをクリック</div>
+<a href="images/img1726456653.png"><img src="images/img1726456653.png" width="300"/></a>
+<p>「Prior to downloading this file, additional verification is required. Proceed?」というメッセージが表示されたら[Yes]をクリック</p>
+<div class="imgtitle">Yesで先に進む</div>
+<a href="images/img1726456753.png"><img src="images/img1726456753.png" width="300"/></a>
+<div class="imgtitle">❺住所を入力してSubmit</div>
+<a href="images/img1726456906.png"><img src="images/img1726456906.png" width="300"/></a>
+<div class="imgtitle">❻ダウンロード画面に戻るのでダウンロードアイコンをクリック</div>
+<a href="images/img1726457055.png"><img src="images/img1726457055.png" width="300"/></a>
+<h3 id="ubunutu%E3%81%AEiso%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8">UbunutuのISOイメージ</h3>
+<p>インストール用のイメージファイルは <a href="https://jp.ubuntu.com/download">https://jp.ubuntu.com/download</a> からダウンロードできます。本書では、Ubuntu Desktop 24.04 LTS（<code>ubuntu-24.04-desktop-amd64.iso</code>）を使用しています。
+※本ページでは学習用にDesktop版を選択しています。GUIツール（DBeaver等）を使用しない場合はUbuntu Serverでも問題ありません。</p>
+<div class="imgtitle">Ubuntu Desktopをダウンロード</div>
+<a href="images/img1726458802.png"><img src="images/img1726458802.png" width="300"/></a>
+<p>上記リンクからダウンロードできない場合はミラーサイトからダウンロードしてください。httpまたはhttpsと記載があるリンクの場合はWebブラウザからのダウンロードが可能です。
+<a href="https://launchpad.net/ubuntu/+cdmirrors">Mirrors : Ubuntu</a></p>
+<h2 id="vmware%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">VMwareのインストール</h2>
+<p>インストーラを実行し、画面に従ってインストールを行います。</p>
+<p>(参考)VMwareのインストール画面：
+※Windows環境の状態やVMwareのバージョンによって異なる画面が表示される可能性があります。</p>
+<div class="imgtitle">Windowsにインストールされているソフトウェアによって下記のメッセージが表示されることがある（「はい」を選択するとすぐに再起動される：任意）</div>
+<a href="images/img1718009129.png"><img src="images/img1718009129.png" width="300"/></a>
+<a href="images/img1718000956.png"><img src="images/img1718000956.png" width="300"/></a>
+<a href="images/img1718001020.png"><img src="images/img1718001020.png" width="300"/></a>
+<p>途中の設定はいずれも任意です。</p>
+<h3 id="%E5%8F%82%E8%80%83-windows%E6%A9%9F%E8%83%BD%E4%BA%92%E6%8F%9B%E6%80%A7%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%81%AE%E5%A4%89%E6%9B%B4">(参考) Windows機能互換性の設定の変更</h3>
+<p>Windows機能互換性の設定の変更は他の仮想環境（WSL2やVirtualBox）に影響を与えることがあります。筆者の環境（Windows 11）ではW「indowsの機能の有効化または無効化」で「Hyper-V」「Windowsハイパーバイザープラットフォーム」「Linux用Windowsサブシステム」を有効にしてVMware, VirtualBox, WSL2が使用可能な状態になっていますが、これらの設定で動作しない、あるいはパフォーマンスが落ちる場合は、ご自身の環境にあわせて導入する仮想環境を選択してください。</p>
+<p><a href="https://knowledge.broadcom.com/external/article?legacyId=76918">Error : Your host does not meet minimum requirements to run VMware workstation with hyper-v or device/credential guard enabled</a></p>
+<p><a href="https://learn.microsoft.com/ja-jp/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v">Windows で Hyper-V を有効にする | Microsoft Learn</a></p>
+<!-- <a href="images/img1718001031.png"><img src="images/img1718001031.png" width="300"/></a> -->
+<p><a href="images/img1726681786.png"><img src="images/img1726681786.png" width="300"/></a></p>
+<p><a href="https://docs.vmware.com/jp/VMware-Workstation-Player-for-Windows/17.0/com.vmware.player.win.using.doc/GUID-D7E859A1-AD77-41A0-9B20-8B15744056E1.html">仮想マシンの拡張仮想キーボード機能の使用</a></p>
+<p><a href="images/img1718001157.png"><img src="images/img1718001157.png" width="300"/></a></p>
+<p><a href="images/img1718001253.png"><img src="images/img1718001253.png" width="300"/></a></p>
+<p><a href="images/img1718001275.png"><img src="images/img1718001275.png" width="300"/></a></p>
+<p><a href="images/img1718001291.png"><img src="images/img1718001291.png" width="300"/></a></p>
+<p><a href="images/img1718001373.png"><img src="images/img1718001373.png" width="300"/></a></p>
+<p><a href="images/img1718001384.png"><img src="images/img1718001384.png" width="300"/></a></p>
+<p>再起動を促された場合は再起動してください。
+<a href="images/img1718001403.png"><img src="images/img1718001403.png" width="300"/></a></p>
+<h3 id="%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9%E3%82%AD%E3%83%BC%E3%81%AE%E5%85%A5%E5%8A%9B%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">ライセンスキーの入力について</h3>
+<p>VMwareを起動するとライセンスキーの入力を求められますが、「個人利用目的」を選択することで入力をスキップできます。</p>
+<p><a href="images/img1718001802.png"><img src="images/img1718001802.png" /></a></p>
+<p><a href="images/img1718001844.png"><img src="images/img1718001844.png" width="300"/></a></p>
+<p><a href="images/img1718001865.png"><img src="images/img1718001865.png" width="300"/></a></p>
+<h2 id="%E4%BB%AE%E6%83%B3%E3%83%9E%E3%82%B7%E3%83%B3%E3%81%AE%E4%BD%9C%E6%88%90">仮想マシンの作成</h2>
+<p>VMwareを実行し、新規仮想マシンの作成（Ctrl+N）で仮想マシンを作成、ゲストOS（Ubuntu）をインストールします。</p>
+<p><a href="images/img1718001907.png"><img src="images/img1718001907.png" width="300"/></a></p>
+<div class="imgtitle">「標準」を選択して「次へ」</div>
+<a href="images/img1718006390.png"><img src="images/img1718006390.png" width="300"/></a>
+<div class="imgtitle">「後でOSをインストール」を選択して「次へ」</div>
+<a href="images/img1718006434.png"><img src="images/img1718006434.png" width="300"/></a>
+<div class="imgtitle">ゲストOSを「Linux」、バージョンを「Ubuntu」にして「次へ」</div>
+<a href="images/img1718006455.png"><img src="images/img1718006455.png" width="300"/></a>
+<div class="imgtitle">必要に応じ仮想マシン名とインストール先を変更して「次へ」
+（ここでは自動で設定されるUbuntuのまま、インストール先はドキュメントフォルダのままにしている）</div>
+<a href="images/img1718006493.png"><img src="images/img1718006493.png" width="300"/></a>
+<div class="imgtitle">必要に応じディスク容量を変更して「次へ」（今回の目的の場合20GBのままで問題ない、実際のディスクスペースは仮想マシンのインストールで使用している分のみを消費する、あとで増やすことも可能）</div>
+<a href="images/img1718006590.png"><img src="images/img1718006590.png" width="300"/></a>
+<div class="imgtitle">完了で仮想マシンが作成される（設定を変更したい場合は「ハードウェアのカスタマイズ」、今回の目的の場合は不要、後から変更することも可能）</div>
+<a href="images/img1718006672.png"><img src="images/img1718006672.png" width="300"/></a>
+<div class="imgtitle">（仮想マシンが作成できた）</div>
+<a href="images/img1718006757.png"><img src="images/img1718006757.png" width="300"/></a>
+<p>ゲストOSに割り当てるメモリーのサイズは、たくさん割り当てることでゲストOSが快適に動作するようになりますが、その分、ホストOSの動作が犠牲になります。 本書のSQLを試すだけであれば、1024～2048MB程度で問題ありません。</p>
+<h2 id="%E3%82%B2%E3%82%B9%E3%83%88osubuntu%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">ゲストOS（Ubuntu）のインストール</h2>
+<p>UbuntuのISOイメージを使ってゲストOSを起動し、Ubuntuをインストールします。</p>
+<h3 id="cddvd%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8%E3%81%AE%E8%A8%AD%E5%AE%9A">CD/DVDイメージの設定</h3>
+<p>仮想マシンの「CD/DVD」をクリック（仮想マシンを選択して「仮想マシンの設定を編集する」または「編集」→「環境設定」→「CD/DVD」）してダウンロードしてあるUbuntuのISOイメージを選択します。</p>
+<p><a href="images/img1718006757.png"><img src="images/img1718006757.png" width="300"/></a></p>
+<p><a href="images/img1718007169.png"><img src="images/img1718007169.png" width="300"/></a></p>
+<h3 id="%E3%82%B2%E3%82%B9%E3%83%88os%E3%81%AE%E8%B5%B7%E5%8B%95%E5%88%9D%E5%9B%9E">ゲストOSの起動（初回）</h3>
+<div class="imgtitle">起動ボタン（▶この仮想マシンをパワーオンする）をクリックすると、仮想マシンの作成時に選択たISOイメージからUbuntuが起動するので、画面に従ってインストールを行います。</div>
+<a href="images/img1718007231.png"><img src="images/img1718007231.png" width="300"/></a>
+<div class="imgtitle">「Try or Install Ubuntu」が選択されているのでEnterキーで開始</div>
+<a href="images/img1726685283.png"><img src="images/img1726685283.png" width="300"/></a>
+<div class="imgtitle">（しばらく待つ）</div>
+<a href="images/img1718007331.png"><img src="images/img1718007331.png" width="300"/></a>
+<div><small>
+※インストール中に「System program problem detected」というメッセージが表示されることがある。インストールを中断・リトライした場合に多い。ひとまずCancelでインストールを続行し、その後も頻発するようだったら仮想マシンを作り直してインストールする等を検討。</small>
+<p><a href="images/img1718041489.png"><img src="images/img1718041489.png" width="300"/></a></p>
+<small>
+※「続ける」というボタンは画面の右下に表示されています。 ※ボタンが画面上に表示されない場合はAlt+F7でスクロール（<a href="https://nisim-m.github.io/linuxcmdbook/howto/altf7.html">画面例</a>）</small></div>
+<p>ゲストOSの画面をクリックすると、キー操作やマウス入力をゲストOSが受け取る状態（キャプチャされた状態）となり、右Ctrl＋Altで解放されてホストOS側の操作が可能になります。</p>
+<p>マウスポインタをゲストOSの外に動かすと自動的にホストOS側の操作に戻りますが、一部のキー操作（PrtScreen等）がゲストOS側にキャプチャされたままになることがあります。この場合も右Ctrl+AltでホストOS側での操作が可能になります。</p>
+<div class="imgtitle">言語の選択（下の方にスクロールすると「日本語」がある）</div>
+<a href="images/img1718007392.png"><img src="images/img1718007392.png" width="300"/></a>
+<div class="imgtitle">日本語を選択するとインストール画面が日本語になり、キーボードの選択等も自動で日本語用になる（適宜変更可能）</div>
+<a href="images/img1718007425.png"><img src="images/img1718007425.png" width="300"/></a>
+<p><a href="images/img1718007474.png"><img src="images/img1718007474.png" width="300"/></a></p>
+<p><a href="images/img1718007484.png"><img src="images/img1718007484.png" width="300"/></a></p>
+<p><a href="images/img1718041310.png"><img src="images/img1718041310.png" width="300"/></a></p>
+<p><a href="images/img1718041321.png"><img src="images/img1718041321.png" width="300"/></a></p>
+<p><a href="images/img1718041333.png"><img src="images/img1718041333.png" width="300"/></a></p>
+<p><a href="images/img1718041343.png"><img src="images/img1718041343.png" width="300"/></a></p>
+<p><a href="images/img1718041362.png"><img src="images/img1718041362.png" width="300"/></a></p>
+<p><a href="images/img1718041373.png"><img src="images/img1718041373.png" width="300"/></a></p>
+<p><a href="images/img1718041389.png"><img src="images/img1718041389.png" width="300"/></a></p>
+<p><a href="images/img1718041405.png"><img src="images/img1718041405.png" width="300"/></a></p>
+<p><a href="images/img1718041615.png"><img src="images/img1718041615.png" width="300"/></a></p>
+<div class="imgtitle">（しばらく待つ）</div>
+<a href="images/img1718041640.png"><img src="images/img1718041640.png" width="300"/></a>
+<div class="imgtitle">（再起動）</div>
+<a href="images/img1718041655.png"><img src="images/img1718041655.png" width="300"/></a>
+<div class="imgtitle">このメッセージが出た場合Enterをクリック（再度ISOイメージからの起動（インストール画面）が開いてしまう場合は「仮想マシン」→「取り外し可能デバイス」で「CD/DVD」→「切断」を選択）</div>
+<a href="images/img1718041703.png"><img src="images/img1718041703.png" width="300"/></a>
+<h3 id="%E5%86%8D%E8%B5%B7%E5%8B%95%E5%BE%8C%E3%81%AE%E8%A8%AD%E5%AE%9A">再起動後の設定</h3>
+<p>再起動するとインストール時に設定したアカウントが表示されるので、クリックしてログインしてください。</p>
+<p><a href="images/img1718041790.png"><img src="images/img1718041790.png" width="300"/></a></p>
+<div class="imgtitle">GUI画面が表示されるのでインストールを完了させる</div>
+<a href="images/img1718041810.png"><img src="images/img1718041810.png" width="300"/></a>
+<p><a href="images/img1718041822.png"><img src="images/img1718041822.png" width="300"/></a></p>
+<div class="imgtitle">（いずれも選択は任意）</div>
+<a href="images/img1718041840.png"><img src="images/img1718041840.png" width="300"/></a>
+<p><a href="images/img1718041864.png"><img src="images/img1718041864.png" width="300"/></a></p>
+<h4 id="ubuntu%E3%83%87%E3%82%B9%E3%82%AF%E3%83%88%E3%83%83%E3%83%97">Ubuntuデスクトップ</h4>
+<p>Ubuntuデスクトップは以下の様な画面構成になっています。</p>
+<p><a href="images/img1726475164.png"><img src="images/img1726475164.png" width="500"/></a></p>
+<h4 id="%E7%AB%AF%E6%9C%AB%E3%82%A2%E3%83%97%E3%83%AA">端末アプリ</h4>
+<p>コマンドは「端末」アプリケーションで入力して実行します。アプリはダッシュボードに登録できます。</p>
+<p><a href="images/img1718041891.png"><img src="images/img1718041891.png" width="300"/></a></p>
+<p><a href="images/img1718042710.png"><img src="images/img1718042710.png" width="300"/></a></p>
+<p><a href="images/img1718042723.png"><img src="images/img1718042723.png" width="300"/></a></p>
+<h3 id="vmware-tools">VMware Tools</h3>
+<p>「VMware Tools」をインストールすると、ホストOSと端末の間でのコピー&amp;ペーストが可能になります。</p>
+<p>VMware Toolsは自動インストールされますが、インストール中インターネットに接続できなかった等でインストールできていない場合があります。ホストOSと端末の間でのコピー&amp;ペーストやファイル共有ができない場合は、「端末」で以下のコマンドを実行してVMware Toolsをインストールしてください。インストール後、再起動するとホストOSと端末の間でのコピー&amp;ペーストが可能になります。</p>
+<pre class="hljs"><code><div>sudo apt install open-vm-tools-desktop
+</div></code></pre>
+<p>※インストール済みの場合はその旨表示される</p>
+<p><a href="images/img1726683006.png"><img src="images/img1726683006.png" width="300"/></a></p>
+<h2 id="%E3%82%B9%E3%83%8A%E3%83%83%E3%83%97%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%E3%81%AE%E6%B4%BB%E7%94%A8">スナップショットの活用</h2>
+<p>VirtualBoxでは、任意のタイミングでゲストOSのスナップショットを作成しておくことができます。本書の学習ではあまり必要ありませんが、興味がある方は以下を参考にしてください。</p>
+<p><a href="https://nisim-m.github.io/linuxcmdbook/howto/install-ubuntu.html#%E3%82%B9%E3%83%8A%E3%83%83%E3%83%97%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%E3%81%AE%E6%B4%BB%E7%94%A8">スナップショットの活用（Linux1＋コマンド入門サポートページ内）</a></p>
+<h2 id="ubuntu%E3%81%AE%E8%A8%AD%E5%AE%9A">Ubuntuの設定</h2>
+<p>システム全体の設定は、デスクトップ右上をクリック→歯車のアイコン（<img src="images/img1726462952.png" height="12px" />）で開く「設定」画面で行います。</p>
+<p>なお、デスクトップの設定は「Ubuntuソフトウェア」の「Extension Manager」でもカスタマイズできます（例：Hide ClockエクステンションでTopパネルのカレンダーを非表示にする、等）。</p>
+<h4 id="%E8%A7%A3%E5%83%8F%E5%BA%A6%E3%81%AE%E5%A4%89%E6%9B%B4">解像度の変更</h4>
+<p>「設定」をクリック→スクロールして「ディスプレイ」を探し、クリックして「解像度」を変更、「適用」で保存
+<small>※解像度はVMwareの「表示」メニューや、ウィンドウサイズの変更でも調整可能</small></p>
+<h3 id="%E3%82%B9%E3%83%AA%E3%83%BC%E3%83%97%E3%81%BE%E3%81%A7%E3%81%AE%E6%99%82%E9%96%93">スリープまでの時間</h3>
+<p>学習の性質上、画面を見ているが操作はしない、という時間が長くなりがちです。デフォルトでは操作していないと5分で画面がオフになりますが、この時間は「電源管理」の「省電力オプション」で設定できます。</p>
+<p>スリープ状態のゲストOSを選択すると、入力がキャプチャされた状態（キーボードからの入力をホストOSではなくゲストOSが取得する状態）のままになることがあします。この場合は、マウスカーソルをゲストOSの外に移動するか、右Ctrl+Altで解除してください。</p>
+<h3 id="%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E5%90%8D%E3%82%92%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A1%E3%83%99%E3%83%83%E3%83%88%E3%81%AB%E3%81%99%E3%82%8B">フォルダ名をアルファベットにする</h3>
+<p>ユーザーフォルダ（ユーザーのホームディレクトリ）にある「書類」や「ピクチャ」などのフォルダは、WindowsやmacOSの場合、実体はDocumentsやPicturesなどのアルファベットで付けられた名前になっていますが、日本語用にインストールしたUbuntuデスクトップの場合は実体も「書類」など日本語の名前になっています。本書ではコマンドラインでこれらのフォルダを扱うことはありませんが、今後、コマンドラインでほかの操作にも慣れていこうという場合、アルファベットの名前の方が扱いやすいでしょう。変更する場合は以下のコマンドを実行し画面の指示に従ってください。</p>
+<code>
+LANG=C xdg-user-dirs-gtk-update
+</code>
+<p><small>※<code>LANG=C</code>スペース<code>xdg-u</code><kbd>Tab</kbd><code>s-g</code><kbd>Tab</kbd><kbd>Enter</kbd>で実行できます。パスワード入力を求められたらUbuntuインストール時のパスワードを入力してください。</small></p>
+<div class="imgtitle">"Update standard folders～というメッセージが表示されるので「Update Names」をクリック</div>
+<a href="images/img1726683626.png"><img src="images/img1726683626.png" width="450"/></a>
+<p>再起動後あらためてフォルダ名の変更を確認するメッセージが表示されたら「次回から表示しない」にチェックマークを入れて「古い名前のままにする」をクリックしてください。</p>
+<p><a href="images/img1726683659.png"><img src="images/img1726683659.png" width="300"/></a></p>
+<h2 id="mariadb%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A8%E8%A8%AD%E5%AE%9A">MariaDBのインストールと設定</h2>
+<h3 id="%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">インストール</h3>
+<p>以下のコマンドでMariaDBをインストールします。</p>
+<pre class="hljs"><code><div>sudo apt -y install mariadb-server
+</div></code></pre>
+<h3 id="%E8%B5%B7%E5%8B%95%E3%81%AE%E7%A2%BA%E8%AA%8D">起動の確認</h3>
+<p>インストールするとMariaDB（サーバー）が自動で起動します。
+起動できているかどうかは下記のコマンドで確認できます（［q］キーで終了）。</p>
+<pre class="hljs"><code><div>systemctl status mariadb
+</div></code></pre>
+<p><small>※<code>active</code>と表示されていない場合は、<code>sudo systemctl restart mariadb</code>を実行してエラーメッセージの有無を確認、エラーメッセージが出ていたら公式サイト等で確認。</small></p>
+<h3 id="%E8%87%AA%E5%8B%95%E8%B5%B7%E5%8B%95%E3%81%AE%E8%A8%AD%E5%AE%9A">自動起動の設定</h3>
+<p>MariaDBはデフォルトで自動起動されるよう設定されています。
+通常、変更する必要はありません。変更したい場合や現在の設定を確認したい場合は以下のコマンドを使用してください。</p>
+<pre class="hljs"><code><div># 無効にする
+sudo systemctl disable mariadb
+# 有効にする場合：
+sudo systemctl enable mariadb
+# 現在の設定を確認する
+systemctl is-enabled mariadb
+</div></code></pre>
+<h3 id="db%E7%AE%A1%E7%90%86%E8%80%85%E7%94%A8%E3%83%91%E3%82%B9%E3%83%AF%E3%83%BC%E3%83%89%E8%A8%AD%E5%AE%9A">DB管理者用パスワード設定</h3>
+<p>mariadb-secure-installationコマンドで、最低限のセキュリティ設定およびデータベース管理者（root）でMySQLサーバーに接続する際のパスワードを設定します。 root用のパスワードを入力する他は、基本的に、すべて「y」で処理を進めてください。</p>
+<pre class="hljs"><code><div>sudo mariadb-secure-installation
+</div></code></pre>
+<p><small>MariaDBはMySQLを元に開発されたデータベースで、多くのコマンド名が共通で使える様になっています。<code>mariadb-secure-installation</code>と<code>mysql_secure_installation</code>の機能は同じです。</small></p>
+<div class="codetitle">（参考）実行画面サンプル（👉<a href="./mariadb-createdb-console">実行ログ全体</a>）</div>
+~~~console
+$ sudo mariadb-secure-installation 
+<p>NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!</p>
+<p>In order to log into MariaDB to secure it, we'll need the current
+password for the root user. If you've just installed MariaDB, and
+haven't set the root password yet, you should just press enter here.</p>
+<p>Enter current password for root (enter for none):
+OK, successfully used password, moving on...</p>
+<p>（略）</p>
+<p>All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.</p>
+<p>Thanks for using MariaDB!
+$</p>
+<pre class="hljs"><code><div>
+### サンプル用データベースの作成
+
+mariadbコマンド（MariaDBサーバーに接続するためのコマンドでmysqlという名前でも実行可能）で、サンプル用のデータベースと、データベースに接続するためのユーザーを作成します。
+
+```
+sudo mariadb -u root -p
+```
+&lt;small&gt;`-u root`はユーザー名rootで接続、`-p`はパスワードを使用するという意味のオプション&lt;/small&gt;
+
+mariadbが起動すると、MariaDB[(none)]&gt;というプロンプトが表示されるので、以下のコマンドを実行します。  
+`--`以降はコメントなので入力不要です。この画面からコピー＆ペーストして実行する場合は`--`以降の部分も一緒にペーストしても問題ありません。
+ また、SQLのキーワードは大文字にしていますが、入力は小文字でもかまいません（👉2.1節「標準SQLと基本的な書式」）。
+
+```
+-- サンプルデータベース用のデータベース3つを作成
+CREATE DATABASE testdb default character set utf8mb4;
+CREATE DATABASE sampledb default character set utf8mb4;
+CREATE DATABASE sampledb2 default character set utf8mb4;
+
+-- 確認（MariaDBで管理しているデータベースが一覧表示される）
+SHOW DATABASES;
+```
+
+引き続き、データベース接続用のユーザーを作成します。
+
+### データベース接続用ユーザーの作成
+
+データベース接続用ユーザーユーザーを作成します。ここでは、Ubuntuをインストールする際に作成したユーザー名と同じ名前のユーザー（study）を作成しています。  
+
+`study`部分はデータベースに接続するユーザー、`mypqssword`部分は接続に使用するパスワードです。 適宜、ご自身のユーザー名と使用したいパスワードに置き換えて実行してください。  
+なお、パスワードは`ALTER USER ユーザー名 IDENTIFIED BY '新しいパスワード'`で変更できます。
+
+```
+-- データベース接続用のユーザーを作成
+-- CREATE USER 'ユーザー名'@'localhost' IDENTIFIED BY 'データベース接続用のパスワード';
+CREATE USER 'study'@'localhost' IDENTIFIED BY 'mypassword';
+```
+
+### 権限の付与
+
+作成したデータベースに対し、データの追加や削除などを含めたすべての権限を与えます。 
+`WITH GRANT OPTION`は権限の追加や削除も行えるようにするためのオプションです。
+
+ここでは上で作成したユーザー「study」を使用しています。`study`部分は適宜ご自身が作成したユーザー名に置き換えて実行してください。
+
+```
+GRANT ALL ON testdb.* TO 'study'@'localhost' WITH GRANT OPTION;
+GRANT ALL ON sampledb.* TO 'study'@'localhost' WITH GRANT OPTION;
+GRANT ALL ON sampledb2.* TO 'study'@'localhost' WITH GRANT OPTION;
+```
+
+設定した権限を再読込してmariadbコマンドを終了します。
+
+```
+FLUSH PRIVILEGES;
+quit
+```
+
+&lt;a href=&quot;./mariadb-createdb-console&quot;&gt;（参考）実行画面サンプル&lt;/a&gt;
+
+### サンプルデータのDLと取り込み
+
+サンプルデータをダウンロードします。
+ファイルはカレントディレクトリに保存されます。
+
+👉[サンプルデータについて](https://nisim-m.github.io/sqlbook2/#%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%87%E3%83%BC%E3%82%BF)
+
+```
+wget https://nisim-m.github.io/sqlbook2/sample/testdb.sql
+wget https://nisim-m.github.io/sqlbook2/sample/sampledb.sql
+wget https://nisim-m.github.io/sqlbook2/sample/sampledb2.sql
+```
+
+mariadbコマンド（MariaDBサーバーに接続するためのコマンドでmysqlという名前でも実行可能）で
+「mariadb -u ユーザー名 -p データベース名 &lt; SQLファイル」のように実行することで、サンプルデータを登録できます。`-u`はデータベースに接続するユーザーを指定するオプションで、現在ログイン中のユーザーと同じ名前である場合は省略できます。`-p`はパスワードを使って接続するというオプションです。
+
+```
+mariadb -p testdb &lt; testdb.sql
+mariadb -p sampledb &lt; sampledb.sql
+mariadb -p sampledb2 &lt; sampledb2.sql
+```
+
+※管理者（root）で取り込む場合
+```
+mariadb -u root -p testdb &lt; testdb.sql
+mariadb -u root -p sampledb &lt; sampledb.sql
+mariadb -u root -p sampledb2 &lt; sampledb2.sql
+```
+
+## DBeaverのインストールと設定
+
+Ubuntu環境の場合、DBeaverは`snap`コマンドでインストールできます。
+
+```
+sudo snap install dbeaver-ce
+```
+
+ダウンロードとインストールが終わると`installed`と表示されます。
+
+&lt;div class=&quot;codetitle&quot;&gt;（参考）実行画面サンプル&lt;/div&gt;
+~~~console
+study@ubuntu:~$ sudo snap install dbeaver-ce
+[sudo] study のパスワード: 
+dbeaver-ce 24.2.0.202409011551 from DBeaver (dbeaver-corp) installed
+study@ubuntu:~$ 
+</div></code></pre>
+<h3 id="dbeaver%E3%81%AE%E8%B5%B7%E5%8B%95">DBeaverの起動</h3>
+<p>DBeaverはダッシュボードに登録して起動できます。
+<a href="images/img1726942093.png"><img src="images/img1726942093.png" width="300"/></a>
+<a href="images/img1726943392.png"><img src="images/img1726943392.png" width="300"/></a></p>
+<h3 id="dbeaver%E3%81%AE%E8%A8%AD%E5%AE%9A">DBeaverの設定</h3>
+<p>初回起動時、サンプルデータベースを作成するかどうかのメッセージが表示されます。サンプルは不要なので「いいえ」をクリックして進みます。</p>
+<div class="imgtitle">「Create sample database」は「いいえ」で進む</div>
+<a href="images/img1726942236.png"><img src="images/img1726942236.png" width="300"/></a>
+<p>「新しい接続を作成する」というダイアログが表示されるので、画面に従って設定を行います。</p>
+<p><small>※接続するDBMSを追加する場合はCtrl+N（データベース→新しい接続）で再度この画面を開くことができます。</small></p>
+<div class="imgtitle">「新しい接続を作成する」でMariaDBを選択して「次へ」をクリック</div>
+<a href="images/img1726943494.png"><img src="images/img1726943494.png" width="300"/></a>
+<div class="imgtitle">認証の情報（ユーザー名とパスワード）を入力して「終了」</div>
+<a href="images/img1726943521.png"><img src="images/img1726943521.png" width="300"/></a>
+<div class="imgtitle">製品パフォーマンス改善用のデータ送信を行うかどうか：適宜選択して「Confirm」</div>
+<a href="images/img1726943540.png"><img src="images/img1726943540.png" width="300"/></a>
+<p>「localhost」をクリックすると「ドライバの設定」が表示されるので、画面に従ってドライバファイルをダウンロードします。</p>
+<div class="imgtitle">「ドライバの設定」で「ダウンロード」をクリック</div>
+<a href="images/img1726943583.png"><img src="images/img1726943583.png" width="300"/></a>
+<div class="imgtitle">「データベース」が選択可能になる（クリックするとsampledb等が表示される）</div>
+<a href="images/img1726943977.png"><img src="images/img1726943977.png" width="300"/></a>
+<h3 id="dbeaver%E3%81%AE%E7%94%BB%E9%9D%A2">DBeaverの画面</h3>
+<h4 id="sql%E3%81%AE%E5%AE%9F%E8%A1%8C">SQLの実行</h4>
+<p>データベースを選択して「SQL」でSQLエディタを開きます。SQL文は▶ボタンまたはCtrl+Enterで実行され、実行結果が画面に表示されます。</p>
+<p><a href="images/img1726944009.png"><img src="images/img1726944009.png" width="300"/></a></p>
+<h4 id="%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AE%E7%A2%BA%E8%AA%8D">テーブルの確認</h4>
+<p>データベース → テーブルを選択すると列の定義情報や「データ」タブで登録されているデータを確認できます。</p>
+<div class="imgtitle"></div><a href="images/img1726944050.png"><img src="images/img1726944050.png" width="300"/></a>
+<h4 id="er%E5%9B%B3">ER図</h4>
+<p>データベースをダブルクリック→「ER図」タブでテーブル同士の関係をER図（第5章参照）で確認できます。</p>
+<div class="imgtitle">ER図（sampledbには多数のテーブルが登録されているため、ここではsampledb2を表示しています）</div>
+<a href="images/img1726944086.png"><img src="images/img1726944086.png" width="300"/></a>
+<h4 id="a-name%22dbeaver-import%22%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88a"><a name="DBeaver-import">サンプルデータのインポート</a></h4>
+<p>DBeaverでは、テーブルを右クリック→「データのインポート」でCSVデータのインポートができるようになっていますが、本書のサンプルコードはSQLコマンドで書かれているためこのメニューからはインポートできません。</p>
+<p>以下を参考に、SQLエディタまたはSQLコンソールでサンプルデータを読み込んで実行してください。</p>
+<div class="imgtitle"></div>
+<a href="images/img1727069389.png"><img src="images/img1727069389.png" width="300"/></a>
+<p><img src="images/img1727076104.png" alt=""></p>
+<!--
+## PostgreSQLのインストールと設定
+
+本書のサンプルは原則としてMariaDBでの実行結果を掲載していますが、PostgreSQLでも同じように実行可能です。ご興味のある方は以下を参考にしてください。👉リンク
+
+-->
+<hr>
+<p><a href="https://nisim-m.github.io/sqlbook2/">標準SQL＋データベース入門 サポートページ</a></p>
+
+</body>
+</html>

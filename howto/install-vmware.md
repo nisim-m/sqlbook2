@@ -288,7 +288,7 @@ UbuntuのISOイメージを使ってゲストOSを起動し、Ubuntuをインス
 
 Ubuntuデスクトップは以下の様な画面構成になっています。
 
-<a href="images/img1726475164.png"><img src="images/img1726475164.png" width="500"/></a>
+<a href="images/img1727113469.png"><img src="images/img1727113469.png" width="500"/></a>
 
 #### 端末アプリ
 
@@ -396,7 +396,8 @@ sudo mariadb-secure-installation
 ```
 <small>MariaDBはMySQLを元に開発されたデータベースで、多くのコマンド名が共通で使える様になっています。`mariadb-secure-installation`と`mysql_secure_installation`の機能は同じです。</small>
 
-<div class="codetitle">（参考）実行画面サンプル</div>
+
+<div class="codetitle">（参考）実行画面サンプル（👉<a href="./mariadb-createdb-console">実行ログ全体</a>）</div>
 ~~~console
 $ sudo mariadb-secure-installation 
 
@@ -410,59 +411,7 @@ haven't set the root password yet, you should just press enter here.
 Enter current password for root (enter for none): 
 OK, successfully used password, moving on...
 
-Setting the root password or using the unix_socket ensures that nobody
-can log into the MariaDB root user without the proper authorisation.
-
-You already have your root account protected, so you can safely answer 'n'.
-
-Switch to unix_socket authentication [Y/n] y
-Enabled successfully!
-Reloading privilege tables..
- ... Success!
-
-
-You already have your root account protected, so you can safely answer 'n'.
-
-Change the root password? [Y/n] 
-New password: 
-Re-enter new password: 
-Password updated successfully!
-Reloading privilege tables..
- ... Success!
-
-
-By default, a MariaDB installation has an anonymous user, allowing anyone
-to log into MariaDB without having to have a user account created for
-them.  This is intended only for testing, and to make the installation
-go a bit smoother.  You should remove them before moving into a
-production environment.
-
-Remove anonymous users? [Y/n] 
- ... Success!
-
-Normally, root should only be allowed to connect from 'localhost'.  This
-ensures that someone cannot guess at the root password from the network.
-
-Disallow root login remotely? [Y/n] 
- ... Success!
-
-By default, MariaDB comes with a database named 'test' that anyone can
-access.  This is also intended only for testing, and should be removed
-before moving into a production environment.
-
-Remove test database and access to it? [Y/n] 
- - Dropping test database...
- ... Success!
- - Removing privileges on test database...
- ... Success!
-
-Reloading the privilege tables will ensure that all changes made so far
-will take effect immediately.
-
-Reload privilege tables now? [Y/n] 
- ... Success!
-
-Cleaning up...
+（略）
 
 All done!  If you've completed all of the above steps, your MariaDB
 installation should now be secure.
@@ -631,6 +580,19 @@ DBeaverはダッシュボードに登録して起動できます。
 データベースをダブルクリック→「ER図」タブでテーブル同士の関係をER図（第5章参照）で確認できます。
 <div class="imgtitle">ER図（sampledbには多数のテーブルが登録されているため、ここではsampledb2を表示しています）</div>
 <a href="images/img1726944086.png"><img src="images/img1726944086.png" width="300"/></a>
+
+#### <a name="DBeaver-import">サンプルデータの取り込み</a>
+
+DBeaverでは、テーブルを右クリック→「データのインポート」でCSVデータのインポートができるようになっていますが、本書のサンプルコードはSQLコマンドで書かれているためこのメニューから取り込むことはできません。
+
+以下を参考に、SQLエディタまたはSQLコンソールでサンプルデータを読み込んで実行してください。
+
+<div class="imgtitle">❶データベースを選択→❷SQLエディタを開き、❸右クリック→❹SQLスクリプトをロードするでファイルを読み込む</div>
+<a href="images/img1727069389.png"><img src="images/img1727069389.png" width="300"/></a>
+<div class="imgtitle">「SQLスクリプトを実行する（Alt+X）」で実行してデータを取り込む</div>
+<a href="images/img1727114518.png"><img src="images/img1727114518.png" width="350"/></a>
+
+
 
 <!--
 ## PostgreSQLのインストールと設定
