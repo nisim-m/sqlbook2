@@ -1,10 +1,6 @@
 [標準SQL＋データベース入門 サポートページ](https://nisim-m.github.io/sqlbook2/) 
 # 学習用環境（Windows + MariaDB）
 
-Windows環境にはMySQL、MariaDB、PostgreSQL、SQL Serverをインストールすることができます。
-ポート番号が重複しなければ共存可能で、本書掲載のSQL文は、上記4種類で動作確認を行っています。
-サンプルデータによる実行結果はMariaDBL(ver11.3)によるものを掲載しています。
-
 <!-- TOC -->
 1. [MariaDBのダウンロード](#mariadbのダウンロード)
 2. [MariaDBのインストール](#mariadbのインストール)
