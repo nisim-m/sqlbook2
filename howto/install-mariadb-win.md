@@ -27,7 +27,7 @@ MariaDBのダウンロードページ https://mariadb.com/downloads/ より、OS
 ## MariaDBのインストール
 
 ダウンロードしたファイル（ここでは`mariadb-11.3.2-winx64.msi`）を実行します。
-画面に従ってインストールを進めます。途中「Use UTF8 as default server's character set」にチェックマークを入れる事、および、他のDBMSをインストールしている場合はポート番号が重複しないようにしてください。
+画面に従ってインストールを進めます。途中「Use UTF8 as default server's character set」にチェックマークを入れ、他のDBMSをインストールしている場合はポート番号が重複しないようにしてください。
 
 <div class="imgtitle">Nextをクリック</div><a href="images/202492405919.png">
 <img src="images/202492405919.png" width="300"/></a>
@@ -59,9 +59,7 @@ MariaDBのダウンロードページ https://mariadb.com/downloads/ より、OS
 
 手動開始の際はタスクマネージャの「サービス」でMariaDBを右クリック→「開始」で開始します。
 
-<div class="imgtitle">「サービス」の「MariaDB」が「実行中」であるかどうか確認</div>
-
-<div class="imgtitle">タスクバーで右クリック→タスクマネージャ→サービスで実行中の確認、右クリック→サービス管理ツールを開くで設定</div>
+<div class="imgtitle">タスクバーで右クリック→タスクマネージャ→サービスで「MariaDB」が「実行中」であるか確認、右クリック→「サービス管理ツールを開く」で設定</div>
 <a href="images/202492411616.png"><img src="images/202492411616.png" width="300"/></a>
 
 <div class="imgtitle">右クリック→プロパティ</div>

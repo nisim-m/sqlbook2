@@ -2,6 +2,11 @@
 # 学習用環境（Windows + MySQL）
 
 <!-- TOC -->
+1. [MySQLのダウンロード](#mysqlのダウンロード)
+2. [MySQLのインストール](#mysqlのインストール)
+3. [自動起動の設定](#自動起動の設定)
+4. [クライアントツールの起動](#クライアントツールの起動)
+   1. [サンプルデータベースの作成](#サンプルデータベースの作成)
 <!-- TOC -->
 
 ## MySQLのダウンロード
@@ -135,7 +140,12 @@ MySQLのダウンロードページ https://www.mysql.com/downloads/ より
 
 この後の手順はMariaDBと共通です。👉[サンプルデータベースの作成](install-mariadb-win#%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E4%BD%9C%E6%88%90)
 
-以下のリンクでサンプルデータをダウンロードしてから「[サンプルデータのインポート](import-mariadb)」の手順でサンプルデータを取り込んでください。
+以下のリンクでサンプルデータをダウンロードしてから「[サンプルデータのインポート](1. [MySQLのダウンロード](#mysqlのダウンロード)
+2. [MySQLのインストール](#mysqlのインストール)
+3. [自動起動の設定](#自動起動の設定)
+4. [クライアントツールの起動](#クライアントツールの起動)
+   1. [サンプルデータベースの作成](#サンプルデータベースの作成)
+import-mariadb)」の手順でサンプルデータを取り込んでください。
 [testdb.sql](https://nisim-m.github.io/sqlbook2/sample/testdb.sql)
 [sampledb.sql](https://nisim-m.github.io/sqlbook2/sample/sampledb.sql)
 [sampledb2.sql](https://nisim-m.github.io/sqlbook2/sample/sampledb2.sql)
