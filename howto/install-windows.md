@@ -16,7 +16,7 @@ Windows環境にはMySQL、MariaDB、PostgreSQL、SQL Serverをインストー�
 
 4. [PostgreSQLのダウンロードとインストール](install-postgresql-win)
 
-5. [SQL&nbsp;Serverのダウンロードとインストール]() ※準備中
+5. [SQL&nbsp;Serverのダウンロードとインストール](install-sqlserver-win)
    
 
 ----
