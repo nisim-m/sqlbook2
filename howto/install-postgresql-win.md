@@ -74,7 +74,7 @@ https://www.postgresql.jp/download
 
 <a href="images/img1715017290.png"><img src="images/img1715017290.png" width="300"/></a>
 
-## 自動起動の設定
+## <a name="startup" id="startup">自動起動の設定</a>
 
 インストールが完了すると自動でPostgreSQLサーバーが起動します。
 起動できているかどうかは「タスクマネージャー」（タスクバーで右クリック→タスクマネージャで起動）の「サービス」で確認できます。
@@ -95,7 +95,7 @@ https://www.postgresql.jp/download
 <div class="imgtitle">スタートアップの種類で自動と手動を切り替える</div>
 <a href="images/2024924215911.png"><img src="images/2024924215911.png" width="200"/></a>
 
-## クライアントツールの起動
+## <a name="client" id="client">クライアントツールの起動</a>
 
 クライアントのコマンドラインツール（psql.exe）はスタートメニューから起動できます。
 

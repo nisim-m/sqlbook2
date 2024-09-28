@@ -100,7 +100,7 @@ MySQLのダウンロードページ https://www.mysql.com/downloads/ より
 <a href="images/2024924104318.png"><img src="images/2024924104318.png" width="300"/></a>
 
 
-## 自動起動の設定
+## <a name="startup" id="startup">自動起動の設定</a>
 
 インストールが完了すると自動でMySQLサーバーが起動します。
 起動できているかどうかは「タスクマネージャー」（タスクバーで右クリック→タスクマネージャで起動）の「サービス」で確認できます。
@@ -122,7 +122,7 @@ MySQLのダウンロードページ https://www.mysql.com/downloads/ より
 <a href="images/img1727201504.png"><img src="images/img1727201504.png" width="200"/></a>
 
 
-## クライアントツールの起動
+## <a name="client" id="client">クライアントツールの起動</a>
 
 クライアントのコマンドラインツール（mysql.exe）はスタートメニューから起動できます。
 

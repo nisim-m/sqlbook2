@@ -22,8 +22,8 @@ MariaDBのダウンロードページ https://mariadb.com/downloads/ より、OS
 
 ## MariaDBのインストール
 
-ダウンロードしたファイル（ここでは`mariadb-11.3.2-winx64.msi`）を実行します。
-画面に従ってインストールを進めます。途中「Use UTF8 as default server's character set」にチェックマークを入れ、他のDBMSをインストールしている場合はポート番号が重複しないようにしてください。
+ダウンロードしたファイル（ここでは`mariadb-11.3.2-winx64.msi`）を実行し、画面に従ってインストールを進めます。
+途中「Use UTF8 as default server's character set」にチェックマークを入れ、他のDBMSをインストールしている場合はポート番号が重複しないようにしてください。
 
 <div class="imgtitle">Nextをクリック</div><a href="images/202492405919.png">
 <img src="images/202492405919.png" width="300"/></a>
@@ -45,7 +45,7 @@ MariaDBのダウンロードページ https://mariadb.com/downloads/ より、OS
 <div class="imgtitle">Finishをクリック</div>
 <a href="images/20249241346.png"><img src="images/20249241346.png" width="300"/></a>
 
-## 自動起動の設定
+## <a name="startup" id="startup">自動起動の設定</a>
 
 インストールが完了すると自動でMariaDBサーバーが起動します。
 起動できているかどうかは「タスクマネージャー」（タスクバーで右クリック→タスクマネージャで起動）の「サービス」で確認できます。
@@ -65,7 +65,7 @@ MariaDBのダウンロードページ https://mariadb.com/downloads/ より、OS
 <a href="images/202492411818.png"><img src="images/202492411818.png" width="200"/></a>
 
 
-## クライアントツールの起動
+## <a name="client" id="client">クライアントツールの起動</a>
 
 クライアントのコマンドラインツール（mysql.exe）はスタートメニューから起動できます。
 <small>※MariaDBはMySQLから派生して開発されたため、コマンドラインツールの名前にmysql.exeが使われています。同じ内容のコマンドがmariadb.exeという名前でもインストールされています。</small>

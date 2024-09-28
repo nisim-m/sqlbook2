@@ -16,7 +16,7 @@
 
 ## SQL&nbsp;Serverのダウンロード
 
-Microsoft SQL Serverは https://www.microsoft.com/ja-jp/sql-server/sql-server-downloads からダウンロードできます。
+Microsoft SQL Serverは [https://www.microsoft.com/ja-jp/sql-server/sql-server-downloads](https://www.microsoft.com/ja-jp/sql-server/sql-server-downloads) からダウンロードできます。
 ここでは小規模環境であれば商用でも無償で使える「Express」を使用しています。
 
 <div class="imgtitle">SQL&nbsp;Server 2022 Expressをダウンロード</div><a href="images/img1727531546.png"><img src="images/img1727531546.png" width="400"/></a>
@@ -48,7 +48,7 @@ Microsoft SQL Serverは https://www.microsoft.com/ja-jp/sql-server/sql-server-do
 <div class="imgtitle">コマンドラインツール（sqlcmd）から接続</div>
 <a href="images/2024928142620.png"><img src="images/2024928142620.png" width="300"/></a>
 
-## 自動起動の設定
+## <a name="startup" id="startup">自動起動の設定</a>
 
 インストールが完了すると自動でSQL&nbsp;Serverが起動します。
 起動できているかどうかは「タスクマネージャー」（タスクバーで右クリック→タスクマネージャで起動）の「サービス」で確認できます。
@@ -60,7 +60,7 @@ Microsoft SQL Serverは https://www.microsoft.com/ja-jp/sql-server/sql-server-do
 
 <div class="imgtitle">「サービス」の「SQL&nbsp;Server」が「実行中」であるかどうか確認</div>
 
-<div class="imgtitle">タスクバーで右クリック→タスクマネージャ→サービスで「PostgreSQL」が「実行中」であるか確認、右クリック→「サービス管理ツールを開く」で設定</div>
+<div class="imgtitle">タスクバーで右クリック→タスクマネージャ→サービスで「SQL&nbsp;Server」が「実行中」であるか確認、右クリック→「サービス管理ツールを開く」で設定</div>
 <a href="images/img1727553550.png"><img src="images/img1727553550.png" width="300"/></a>
 
 <div class="imgtitle">右クリック→プロパティ</div>
@@ -69,7 +69,7 @@ Microsoft SQL Serverは https://www.microsoft.com/ja-jp/sql-server/sql-server-do
 <div class="imgtitle">スタートアップの種類で自動と手動を切り替える</div>
 <a href="images/img1727553571.png"><img src="images/img1727553571.png" width="200"/></a>
 
-### コマンドラインツール（sqlcmd.exe）
+### <a name="client" id="client">コマンドラインツール（sqlcmd.exe）</a>
 
 接続用のコマンドは、上記の「今すぐ接続」で確認してください。
 
@@ -198,7 +198,7 @@ sqlcmd -S コンピューター名\SQLEXPRESS -E -d データベース名 -i フ
 <a href="images/24928181640.png"><img src="images/24928181640.png" width="300"/></a>
 
 
-## <a name="SMSS" id="SMSS">SQL Server Management Studio （SSMS: 管理ツール）</a>
+## <a name="SSMS" id="SSMS">SQL Server Management Studio （SSMS: 管理ツール）</a>
 
 SQL Server Management Studio (SSMS)はGUIベースでSQL&nbsp;Serverに接続し、管理やデータの閲覧、SQLの実行ができるツールです。
 
