@@ -198,7 +198,7 @@ sqlcmd -S コンピューター名\SQLEXPRESS -E -d データベース名 -i フ
 <a href="images/24928181640.png"><img src="images/24928181640.png" width="300"/></a>
 
 
-## SQL Server Management Studio （SSMS: 管理ツール）
+## <a name="SMSS" id="SMSS">SQL Server Management Studio （SSMS: 管理ツール）</a>
 
 SQL Server Management Studio (SSMS)はGUIベースでSQL&nbsp;Serverに接続し、管理やデータの閲覧、SQLの実行ができるツールです。
 
@@ -208,7 +208,7 @@ SQL Server Management Studio (SSMS)はGUIベースでSQL&nbsp;Serverに接続し
 
 インストール完了の画面で「SMSSのインストール」をクリックするとダウンロードサイト（下記URL）に接続し、インストーラーを入手できます。
 
-[SQL Server Management Studio (SSMS) のダウンロード - SQL Server Management Studio (SSMS) | Microsoft Learn](https://learn.microsoft.com/ja-jp/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16&redirectedfrom=MSDN#download-ssms)
+[SQL Server Management Studio (SSMS) のダウンロード](https://learn.microsoft.com/ja-jp/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
 
 <div class="imgtitle">スクロールしてSSMSをダウンロード</div>
 <a href="images/2492819144.png"><img src="images/2492819144.png" width="300"/></a>
@@ -220,11 +220,11 @@ SQL Server Management Studio (SSMS)はGUIベースでSQL&nbsp;Serverに接続し
 <a href="images/2024928143721.png"><img src="images/2024928143721.png" width="300"/></a>
 
 <div class="imgtitle">Closeで終了</div>
-<a href="<images/img1727534884.png>"><img src="<images/img1727534884.png>" width="300"/></a>
+<a href="images/img1727534884.png"><img src="images/img1727534884.png" width="300"/></a>
 
 スタートメニューの「S」-「Microsoft SQL Server Tools 20」にある「SQL Server Management Studio 20」で起動します。頻繁に使う場合は「スタートにピン留め」をしておくと良いでしょう。
 
-<div class="imgtitle">SQL Server Management Studio 20</div>
+<div class="imgtitle">SQL Server Management Studio 20で起動</div>
 <a href="images/24928182358.png"><img src="images/24928182358.png" width="300"/></a>
 
 <div class="imgtitle">Trust server certificateに✔を入れてConnect</div>

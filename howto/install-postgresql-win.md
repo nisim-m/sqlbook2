@@ -11,6 +11,7 @@
    1. [データベースの作成](#データベースの作成)
    2. [【参考】実行画面](#参考実行画面)
 6. [テスト用ユーザーの作成](#テスト用ユーザーの作成)
+7. [pgAdmin 4（管理ツール）](#pgadmin4管理ツール)
 <!-- TOC -->
 
 ## PostgreSQLのダウンロード
@@ -212,6 +213,40 @@ createuserやcreatedbコマンドは、PostgreSQLのインストールディレ�
 
 <div class="imgtitle">コマンドを実行する（PowerShellの場合、`./`または`.\`を付けて実行</div>
 <a href="images/2024924221548.png"><img src="images/2024924221548.png" width="300"/></a>
+
+## <a name="pgAdmin" id="pgAdmin">pgAdmin&nbsp;4（管理ツール）</a>
+
+インストール時に「pgAdmin&nbsp;4」を有効にしていた場合、GUIベースの管理ツールがインストールされます。
+
+本書では使用しませんが、PostgreSQLを活用する上で便利でしょう。
+
+ここでは、インストールとサンプルデータ登録後のデータ表示とSQL文の実行画面のみ紹介します。
+
+スタートメニューの「P」-「PostgreSQL 16」にある「pgAdmin&nbsp;4」で起動します。頻繁に使う場合は「スタートにピン留め」をしておくと良いでしょう。
+
+<div class="imgtitle">pgAdmin&nbsp;4で起動</div>
+<a href="images/24928193646.png"><img src="images/24928193646.png" width="300"/></a>
+
+
+<div class="imgtitle">「Add New Server」で接続用の設定を作成</div>
+<a href="images/24928193733.png"><img src="images/24928193733.png" width="300"/></a>
+
+
+<div class="imgtitle">「General」で名前（任意）を付ける</div>
+<a href="images/24928193814.png"><img src="images/24928193814.png" width="300"/></a>
+
+
+<div class="imgtitle">「Connection」で接続用の設定を入力して「Save」</div>
+<a href="images/24928193847.png"><img src="images/24928193847.png" width="300"/></a>
+
+
+
+<div class="imgtitle">データベースを選択→Schemas→Publicにあるテーブルを右クリックして「View/Edit Data」でテーブル定義の表示</div>
+<a href="images/24928194534.png"><img src="images/24928194534.png" width="300"/></a>
+
+
+<div class="imgtitle">データベースを右クリック→「PSQL Tool」でクエリ画面が開く（F5で実行）</div>
+<a href="images/2492821825.png"><img src="images/2492821825.png" width="300"/></a>
 
 ----
 [標準SQL＋データベース入門 <small>——RDBとDB設計、基本の力</small> サポートページ](https://nisim-m.github.io/sqlbook2/)
