@@ -120,11 +120,15 @@ https://www.postgresql.jp/download
 
 ## サンプルデータの取り込み
 
+サンプルデータをあらかじめダウンロードし、テキストエディタ（メモ帳など）で表示できるようにしておいてください。
+
+<small>ダウンロードリンク：[testdb.sql](https://nisim-m.github.io/sqlbook2/sample/testdb.sql), [sampledb.sql](https://nisim-m.github.io/sqlbook2/sample/sampledb.sql), [sampledb2.sql](https://nisim-m.github.io/sqlbook2/sample/sampledb2.sql)（👉[サンプルデータについて](https://nisim-m.github.io/sqlbook2/#%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%87%E3%83%BC%E3%82%BF)）</small>
+
 1. データベースの作成
 2. `\c データベース名` でデータベースを選択
-3. メモ帳からサンプルデータをコピー＆ペースト
+3. テキストエディタからサンプルデータをコピー＆ペースト
 
-で取り込んでください。
+で取り込むことができます。
 
 ※本書用のサンプルデータはUTF-8で書かれておりWindowsのpsqlコマンドはSJISのため、`\i`コマンドによる読み込みはできません。qsqlコマンド起動時の文字コードでUTF-8は選択可能ですが、エラーや警告のメッセージが文字化けします。
 

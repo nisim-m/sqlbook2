@@ -27,7 +27,7 @@
 導入するUbuntuはデスクトップ版で、GUIからDBMSに接続する方法の1つとしてDBeaverを紹介しています。なお、本書のサンプル実行にあたっては、GUIを使用せず、コマンドラインのみの利用でも問題ありません。  <br/> 
 VirtualBoxを利用する予定の方は、「基本がわかるSQL入門」のサポートページ（[VirtualBox + Ubuntu](https://nisim-m.github.io/sqlbook/howto/install-ubuntu.html)を参考にしてください。バージョンは異なりますが基本的な方法は共通です。こちらではApacheとPHPをインストールして、WebブラウザでSQL文を入力して試す方法も紹介しています。
   
-- [Windows環境へのインストール](howto/install-Windows) 
+- [Windows環境へのインストール](howto/install-windows) 
 Windows版のDBMSをインストールする（MySQL/MariaDB/PostgreSQL/Microsoft SQL Server ※準備中）  
 それぞれのコマンドラインクライアントでSQLを実行する方法（参考、コマンド操作に慣れている人向け）および、GUI環境として、DBeaverの導入方法を解説しています。
 

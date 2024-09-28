@@ -10,13 +10,13 @@ Windows環境にはMySQL、MariaDB、PostgreSQL、SQL Serverをインストー�
    - クライアントツールの起動
    - [HeidiSQL](install-mariadb-win#heidisql)（GUIツール、MariaDB以外にも接続可能）
 
-2. [サンプルデータのインポート](import-mariadb-win)（MariaDB/MySQL共通）
+2. [サンプルデータのインポート](import-mariadb)（MariaDB/MySQL共通）
 
 3. [MySQLのダウンロードとインストール](install-mysql-win)
 
 4. [PostgreSQLのダウンロードとインストール](install-postgresql-win)
 
-5. SQL&nbsp;Serverのダウンロードとインストール (準備中)
+5. [SQL&nbsp;Serverのダウンロードとインストール]() ※準備中
    
 
 ----
