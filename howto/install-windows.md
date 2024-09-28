@@ -6,22 +6,30 @@ Windows環境にはMySQL、MariaDB、PostgreSQL、SQL Serverをインストー�
 サンプルデータによる実行結果はMariaDBL(ver11.3)によるものを掲載しています。
 
 1. [MariaDBのダウンロードとインストール](install-mariadb-win)
-   - 自動起動の設定
-   - クライアントツールの起動
+   - [自動起動の設定](install-mariadb-win#startup)
+   - [クライアントツールの起動](install-mariadb-win#client)
    - [HeidiSQL](install-mariadb-win#heidisql)（GUIツール、MariaDB以外にも接続可能）
 
 2. [サンプルデータのインポート](import-mariadb)（MariaDB/MySQL共通）
+   - [データベースの作成](import-mariadb#createdb)
+   - [サンプルデータの取り込み](import-mariadb#import)
 
 3. [MySQLのダウンロードとインストール](install-mysql-win)
+   - [自動起動の設定](install-mysql-win#startup)
+   - [クライアントツールの起動](install-mysql-win#client)
 
 4. [PostgreSQLのダウンロードとインストール](install-postgresql-win)
-   - 自動起動の設定
-   - クライアントツールの起動
+   - [自動起動の設定](install-postgresql-win#startup)
+   - [クライアントツールの起動](install-postgresql-win#client)
+   - [データベースの作成](install-postgresql-win#createdb)
+   - [サンプルデータの取り込み](install-postgresql-win#import)
    - [pgAdmin 4（管理ツール）](install-postgresql-win#pgAdmin)（GUIツール）
 
 5. [SQL&nbsp;Serverのダウンロードとインストール](install-sqlserver-win)
-   - 自動起動の設定
-   - クライアントツールの起動
+   - [自動起動の設定](install-sqlserver-win#startup)
+   - [クライアントツールの起動](install-sqlserver-win#client)
+   - [データベースの作成](install-sqlserver-win#createdb)
+   - [サンプルデータの取り込み](install-sqlserver-win#import)
    - [SQL Server Management Studio （SSMS: 管理ツール）](install-sqlserver-win#SMSS)（GUIツール）   
 
 ----

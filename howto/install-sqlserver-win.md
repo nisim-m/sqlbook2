@@ -58,7 +58,7 @@ Microsoft SQL Serverは https://www.microsoft.com/ja-jp/sql-server/sql-server-do
 
 手動開始の際はタスクマネージャの「サービス」でSQL&nbsp;Serverを右クリック→「開始」で開始します。
 
-<div class="imgtitle">「サービス」の「PostgreSQL」が「実行中」であるかどうか確認</div>
+<div class="imgtitle">「サービス」の「SQL&nbsp;Server」が「実行中」であるかどうか確認</div>
 
 <div class="imgtitle">タスクバーで右クリック→タスクマネージャ→サービスで「PostgreSQL」が「実行中」であるか確認、右クリック→「サービス管理ツールを開く」で設定</div>
 <a href="images/img1727553550.png"><img src="images/img1727553550.png" width="300"/></a>
@@ -120,7 +120,7 @@ sqlcmd -S コンピューター名\SQLEXPRESS -E
 | &#x3A;o ファイル名 | 実行結果を指定したファイルに保存する ｜
 | :help | ヘルプを表示する |
 
-## サンプルデータの取り込み
+## <a name="import" id="import">サンプルデータの取り込み</a>
 
 サンプルデータをあらかじめダウンロードし、テキストエディタ（メモ帳など）で表示できるようにしておいてください。
 
@@ -135,7 +135,7 @@ sqlcmd -S コンピューター名\SQLEXPRESS -E
 
 <strong>SQL&nbsp;Serverのコマンドライン環境では、`GO`コマンド（小文字でも可）を実行することでコマンドが実行されます。本ページでは、他のコマンドと区別するために小文字で記載しています。</strong>
 
-### データベースの作成
+### <a name="createdb" id="createdb">データベースの作成</a>
 
 以下のコマンドはまとめて選択し、`sqlcmd`の画面にペーストすることで実行できます。
 

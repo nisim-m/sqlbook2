@@ -28,7 +28,7 @@ mysql -u ユーザー名 -p
 
 スタートメニューに登録されているクライアントコマンドを使用します（mysql.exeが実行される）。クライアントコマンドはquitまたはexitで、クライアントウィンドウはexitで終了できます。マウス操作でクライアントウィンドウ閉じても問題ありません。
 
-## データーベースの作成
+## <a name="createdb" id="createdb">データーベースの作成</a>
 
 MySQL/MariaDBでは、❶`CREATE DATABASE`で「データベース」を作成し、❷`use データベース名`で使用するデータベースを選択し、❸`CREATE TABLE`でテーブルを作成してデータを登録します。
 
@@ -76,7 +76,7 @@ CREATE DATABASE sampledb2
 SHOW VARIABLES LIKE 'character_set_server';
 ```
 
-## サンプルデータの取り込み
+## <a name="import" id="import">サンプルデータの取り込み</a>
 
 サンプルデータの取り込みには主に以下の3つの方法があります。
 いずれの場合もサンプルデータをあらかじめダウンロードしておいてください（👉[本書で使用するサンプルデータ](https://nisim-m.github.io/sqlbook2/#%E6%9C%AC%E6%9B%B8%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8B%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%83%87%E3%83%BC%E3%82%BF)）。
