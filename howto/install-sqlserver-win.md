@@ -124,7 +124,7 @@ sqlcmd -S コンピューター名\SQLEXPRESS -E
 
 サンプルデータをあらかじめダウンロードし、テキストエディタ（メモ帳など）で表示できるようにしておいてください。
 
-<small>［ダウンロードリンク（SQL&nbsp;Server用）：[testdb.sql](https://nisim-m.github.io/sqlbook2/sample/testdb-sqlserver.sql), [sampledb.sql](https://nisim-m.github.io/sqlbook2/sample/sampledb-sqlserver.sql), [sampledb2.sql](https://nisim-m.github.io/sqlbook2/sample/sampledb2-sqlserver.sql)（👉[サンプルデータについて](https://nisim-m.github.io/sqlbook2/#sqlserver%E7%94%A8)）］</small>
+<small>ダウンロードリンク（SQL&nbsp;Server用）：[testdb.sql](https://nisim-m.github.io/sqlbook2/sample/testdb-sqlserver.sql), [sampledb.sql](https://nisim-m.github.io/sqlbook2/sample/sampledb-sqlserver.sql), [sampledb2.sql](https://nisim-m.github.io/sqlbook2/sample/sampledb2-sqlserver.sql)（👉[サンプルデータについて](https://nisim-m.github.io/sqlbook2/#sqlserver%E7%94%A8)）</small>
 
 1. データベースの作成
 2. `use データベース名` でデータベースを選択
