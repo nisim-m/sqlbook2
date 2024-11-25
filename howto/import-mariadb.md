@@ -1,4 +1,4 @@
-[標準SQL＋データベース入門 サポートページ](httpsnisim-m.github.iosqlbook2) 
+[標準SQL＋データベース入門 サポートページ](https://nisim-m.github.io/sqlbook2/) 
 
 # サンプルデータのインポート（MySQL/MariaDB、コマンドライン使用）
 

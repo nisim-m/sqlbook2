@@ -72,9 +72,9 @@ SQL&nbsp;Server用は❶sqlcmd.exeでの表示結果を見やすくするため�
 | [sampledb2-sqlserver.sql](sample/sampledb2-sqlserver.sql) | 第7章用サンプルデータ（フクロウ塾） | sampledb2 |
 
 #### サンプルデータをインポートするには
-- [mysql/mariadbコマンドの場合（MySQL, MariaDB ※コマンド操作に慣れている人向け）](howto/import-mariadb)
-- [psqlコマンドの場合（PostgreSQL ※コマンド操作に慣れている人向け）](howto/) ※準備中
-- [Microsoft SQL&nbsp;Server場合](howto/) ※準備中
+- [mysql/mariadbコマンドの場合（MySQL, MariaDB）](howto/import-mariadb)
+- [psqlコマンドの場合（PostgreSQL）](howto/install-postgresql-win#import) 
+- [Microsoft SQL&nbsp;Server場合](howto/install-sqlserver-win#import)
 - [DBeaverの場合（MySQL, MariaDB, PostgreSQL, SQL&nbsp;Server）](howto/install-vmware#dbeaver-import) ※VMware+Ubuntuページ内
 
 ## 正誤表
@@ -94,6 +94,7 @@ SQL&nbsp;Server用は❶sqlcmd.exeでの表示結果を見やすくするため�
 <a id="markdown-%E7%B7%A8%E9%9B%86%E5%B1%A5%E6%AD%B4" name="%E7%B7%A8%E9%9B%86%E5%B1%A5%E6%AD%B4"></a>
 
 - 2024.9 サポートページ公開
+- 2024.11.26 「サンプルデータをインポートするには」リンク修正
 
 ----
 [標準SQL＋データベース入門 <small>——RDBとDB設計、基本の力</small> サポートページ](https://nisim-m.github.io/sqlbook2/)
