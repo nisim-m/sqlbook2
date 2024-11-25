@@ -1,4 +1,6 @@
 
+[標準SQL＋データベース入門 サポートページ](https://nisim-m.github.io/sqlbook2/) 
+
 ## データーベースの作成
 
 DROP DATABASE IF EXISTS testdb;

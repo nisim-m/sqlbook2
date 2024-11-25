@@ -124,14 +124,14 @@ sqlcmd -S コンピューター名\SQLEXPRESS -E
 
 サンプルデータをあらかじめダウンロードし、テキストエディタ（メモ帳など）で表示できるようにしておいてください。
 
-<small>ダウンロードリンク（SQL&nbsp;Server用）：[testdb.sql](https://nisim-m.github.io/sqlbook2/sample/testdb-sqlserver.sql), [sampledb.sql](https://nisim-m.github.io/sqlbook2/sample/sampledb-sqlserver.sql), [sampledb2.sql](https://nisim-m.github.io/sqlbook2/sample/sampledb2-sqlserver.sql)（👉[サンプルデータについて](https://nisim-m.github.io/sqlbook2/#sqlserver%E7%94%A8)）</small>
+<small>［ダウンロードリンク（SQL&nbsp;Server用）：[testdb.sql](https://nisim-m.github.io/sqlbook2/sample/testdb-sqlserver.sql), [sampledb.sql](https://nisim-m.github.io/sqlbook2/sample/sampledb-sqlserver.sql), [sampledb2.sql](https://nisim-m.github.io/sqlbook2/sample/sampledb2-sqlserver.sql)（👉[サンプルデータについて](https://nisim-m.github.io/sqlbook2/#sqlserver%E7%94%A8)）］</small>
 
 1. データベースの作成
 2. `use データベース名` でデータベースを選択
 3. テキストエディタからサンプルデータをコピー＆ペースト
 4. `go`で実行
 
-で取り込むことができます（👉[ファイルから読み込む場合](#sqlcmdでファイルから読み込む場合)）。
+で取り込むことができます（👉[ファイルから読み込む場合](#file)）。
 
 <strong>SQL&nbsp;Serverのコマンドライン環境では、`GO`コマンド（小文字でも可）を実行することでコマンドが実行されます。本ページでは、他のコマンドと区別するために小文字で記載しています。</strong>
 
@@ -183,7 +183,7 @@ CREATE DATABASE testdb COLLATE Latin1_General_100_CI_AI_SC_UTF8;
 <div class="imgtitle">goで実行（サンプルデータが取り込まれる）</div>
 <a href="images/24928174925.png"><img src="images/24928174925.png" width="300"/></a>
 
-### 【参考】sqlcmdの-iオプションでファイルから読み込む場合
+### <a name="file">【参考】sqlcmdの-iオプションでファイルから読み込む場合</a>
 
 本書用のサンプルデータはUTF-8で作成されているため、
 sqlcmdの`-i`オプションでファイルを取り込みたい場合は`-f 65001`オプション（コードページを指定するオプション 👉[Microsoft Learn](https://learn.microsoft.com/ja-jp/sql/tools/sqlcmd/sqlcmd-utility)）を指定する必要があります。
